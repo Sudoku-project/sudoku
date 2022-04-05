@@ -9,7 +9,3 @@ export const dataGrid = [
   [9, 1, 3, 6, 4, 2, 5, 8, 7],
   [8, 7, 4, 9, 5, 3, 1, 2, 6]
 ];
-
-// Si on veut vérifier, il faut : 
-// 1) que chaque tableau ai une valeur unique comprise entre 1 et 9
-// 2) dataGrid[0][0] soit différent de dataGrid[1][0]
