@@ -1,0 +1,22 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+.grid {
+  @include posCenter;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  &--body {
+    border: 3px solid vars.$black;
+
+    &--row {
+
+      &--content {
+        border: 1px solid vars.$black;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+      }
+    }
+  }
+}
