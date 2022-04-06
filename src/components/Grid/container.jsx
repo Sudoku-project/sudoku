@@ -41,18 +41,59 @@ const GridContainer = () => {
     };
 
     // We push the three numbers for the right three squares
-    squaresArray[0].push([linesArray[0][0], linesArray[0][1], linesArray[0][2]]);
-    squaresArray[1].push([linesArray[0][3], linesArray[0][4], linesArray[0][5]]);
-    squaresArray[2].push([linesArray[0][6], linesArray[0][7], linesArray[0][8]]);
+    squaresArray[0].push(linesArray[0][0], linesArray[0][1], linesArray[0][2]);
+    squaresArray[1].push(linesArray[0][3], linesArray[0][4], linesArray[0][5]);
+    squaresArray[2].push(linesArray[0][6], linesArray[0][7], linesArray[0][8]);
 
-   
-    
+    // for the 9 colums, we push the right number in the first index of every array in columns
     for (let i = 0; i < 9; i++) {
       columnsArray[i].push(linesArray[0][i]);
     };
-    console.log('squaresArray = ', squaresArray)
-    console.log('colonnes = ', columnsArray);
-    console.log('lignes = ', linesArray);
+
+    generateSecondeRow(linesArray, squaresArray, columnsArray);
+  };
+
+
+
+  const generateSecondeRow = (linesArray, squaresArray, columnsArray) => {
+
+    let j = 0;
+    let i;
+
+    for (i = 0; i < 9;)  {
+      const newNumber = randomNumber(1, 9);
+      // We change conditions for push in arrays
+      if (
+        ( !linesArray[1].includes(newNumber) &&
+          !columnsArray[i].includes(newNumber) && 
+          !squaresArray[j].includes(newNumber)
+        )    
+      ) {
+
+       console.log('i', i)
+       console.log('j', j)
+      //linesArray[1].push(newNumber);
+      //  columnsArray[i].push(newNumber);
+      //  squaresArray[j].push(newNumber);
+
+        i++;
+        if (i === 3 ) {
+          j++;
+        } else if ( i === 6 ) {
+          j++;
+        };
+        
+      
+      } 
+     
+      
+    };
+  
+  
+  console.log('linesArray', linesArray)
+  console.log('squaresArray', squaresArray)
+  console.log('columnsArray', columnsArray)  
+
   };
 
 
