@@ -7,16 +7,18 @@ const GridView = () => {
   return (
     <table className='grid'>
       <tbody className='grid--body'>
-        {dataGrid.map((line, index) =>
+        {dataGrid.map((lines, index) =>
           <tr
             className='grid--body--row'
             key={index}
           >
 
-            {line.map((number, index) =>
+            {lines.map((number, index) =>
 
               <td
-                className='grid--body--row--content'
+                className={
+                  number === 4 ? 'grid--body--row--content grid--body--row--content--bold' :
+                  'grid--body--row--content'}
                 key={index}
               >
                 {number}
@@ -30,3 +32,35 @@ const GridView = () => {
 };
 
 export default GridView;
+
+// import React from "react";
+
+// import './style.scss';
+
+// const GridView = ({ rows }) => {
+//   return (
+//     <table className='grid'>
+//       <tbody className='grid--body'>
+//         {rows.map((row, index) =>
+//           <tr
+//             className='grid--body--row'
+//             key={index}
+//           >
+
+//             {row.map((number, index) =>
+
+//               <td
+//                 className='grid--body--row--content'
+//                 key={index}
+//               >
+//                 {number}
+//               </td>
+//             )}
+//           </tr>
+//         )}
+//       </tbody>
+//     </table>
+//   );
+// };
+
+// export default GridView;
