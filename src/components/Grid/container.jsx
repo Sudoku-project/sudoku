@@ -1,26 +1,25 @@
 import React from "react";
-import GridView from './view.jsx';
+import GridView from "./view.jsx";
 
-import { board } from '../../utils/dataGrid.js';
+import { board, Util } from "../../utils/dataGrid.js";
 
 const GridContainer = () => {
-
   // We verify if a case is a valid place for a number
-  const isValidPlace = (grid, row, col, number) =>{
+  const isValidPlace = (grid, row, col, number) => {
     // For the 9 cases in each row,
-    for(let i = 0; i < 9; i++){
+    for (let i = 0; i < 9; i++) {
       // we verify for each matching column, if the number is valid
-      if(grid[i][col] === number) {
+      if (grid[i][col] === number) {
         return false;
-      };
-    };
-    
+      }
+    }
+
     // We do the same for each column
-    for(let i = 0; i < 9; i++){
-      if(grid[row][i] === number) {
+    for (let i = 0; i < 9; i++) {
+      if (grid[row][i] === number) {
         return false;
-      };
-    };
+      }
+    }
 
     // And for each square
     // We initialize squares from y axes and x axes and we keep the modulo.
@@ -29,13 +28,13 @@ const GridContainer = () => {
     let localSquareCol = col - (col % 3);
 
     // Commentaires
-    for(let i = localSquareRow; i < localSquareRow + 3; i++) {
-      for(let j = localSquareCol; j < localSquareCol + 3; j++) {
-        if(grid[i][j] === number) {
+    for (let i = localSquareRow; i < localSquareRow + 3; i++) {
+      for (let j = localSquareCol; j < localSquareCol + 3; j++) {
+        if (grid[i][j] === number) {
           return false;
-        };
-      };
-    };
+        }
+      }
+    }
 
     return true;
   };
@@ -58,23 +57,53 @@ const GridContainer = () => {
               if (solve(grid)) {
                 return true;
               }
-              // ***** ELSE ????? ****
+
               grid[row][col] = 0;
-            };
-          };
+            }
+          }
           return false;
-        };
-      };
-    };
+        }
+      }
+    }
     return true;
   };
-  
-  solve(board)
-  console.log(board)
 
-	return (
+  const createPuzzle = () => {
+    let puzzle = getRandomSudoku();
+    solve(puzzle);
+    for (let i = 0; i < 9; i++) {
+      puzzle[i] = Array(9).fill(0);
+    }
+    for (let i = 0; i < 9; i++) {
+      for (let j = 0; j < 9; j++) {
+        if (Math.random() > 0.3) puzzle[i][j] = 0;
+      }
+    }
+    return puzzle;
+  };
+
+  const getRandomSudoku = () => {
+    let puzzle = [];
+    for (let i = 0; i < 9; i++) {
+      puzzle[i] = Array(9).fill(0);
+    }
+    for (let i = 0; i < 8; i++) {
+      let number = Math.floor(Math.random() * 8) + 1;
+      while (!isValidPlace(puzzle, 0, i, number)) {
+        number = Math.floor(Math.random() * 8) + 1;
+      }
+      puzzle[0][i] = number;
+    }
+    return puzzle;
+  };
+
+  let puzzle = createPuzzle();
+  solve(puzzle);
+  Util.print2DArray(puzzle);
+
+  return (
     <>
-    	<GridView />
+      <GridView />
     </>
   );
 };
