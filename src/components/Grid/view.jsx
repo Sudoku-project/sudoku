@@ -4,6 +4,7 @@ import { dataGrid } from "../../utils/dataGrid";
 import './style.scss';
 
 const GridView = () => {
+
   return (
     <table className='grid'>
       <tbody className='grid--body'>
