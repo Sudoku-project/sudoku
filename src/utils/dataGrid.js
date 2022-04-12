@@ -7,7 +7,7 @@ export const dataGrid = [
   [1, 9, 7, 4, 6, 8, 2, 5, 3],
   [2, 5, 6, 1, 8, 7, 3, 9, 4],
   [9, 1, 3, 6, 4, 2, 5, 8, 7],
-  [8, 7, 4, 9, 5, 3, 1, 2, 6]
+  [8, 7, 4, 9, 5, 3, 1, 2, 6],
 ];
 
 export const board = [
@@ -19,5 +19,18 @@ export const board = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
+
+export const Util = {
+  print2DArray: function (grid) {
+    for (let i = 0; i < grid.length; i++) {
+      console.log(...grid[i]);
+    }
+  },
+  copyGrid: function (from, to) {
+    for (let i = 0; i < from.length; i++) {
+      to[i] = [...from[i]];
+    }
+  },
+};
