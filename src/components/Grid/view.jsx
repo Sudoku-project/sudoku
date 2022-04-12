@@ -1,23 +1,26 @@
 import React from "react";
-import { dataGrid } from "../../utils/dataGrid";
 
 import './style.scss';
 
-const GridView = () => {
+const GridView = ({ grid }) => {
 
   return (
     <table className='grid'>
       <tbody className='grid--body'>
-        {dataGrid.map((line, index) =>
+        {grid.map((row, index) =>
           <tr
             className='grid--body--row'
             key={index}
           >
 
-            {line.map((number, index) =>
+            {row.map((number, index) =>
 
               <td
-                className='grid--body--row--content'
+                className=
+                'grid--body--row--content'
+                // {
+                //   number === 1 ? 'grid--body--row--content red' : 'grid--body--row--content'
+                // }
                 key={index}
               >
                 {number}

@@ -16,9 +16,10 @@
 
       &--content {
         border: 1px solid vars.$black;
-        width: 50px;
-        height: 50px;
+        width: 100px;
+        height: 100px;
         text-align: center;
+        font-size: 50px;
 
         &:nth-child(3n) {
           border-right: 3px solid vars.$black;
@@ -26,4 +27,9 @@
       }
     }
   }
+}
+
+.red {
+  color: red;
+  font-weight: bold;
 }

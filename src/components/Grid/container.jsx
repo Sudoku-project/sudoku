@@ -1,7 +1,7 @@
 import React from "react";
 import GridView from "./view.jsx";
 
-import { board, Util } from "../../utils/dataGrid.js";
+// import { board, Util } from "../../utils/dataGrid.js";
 
 const GridContainer = () => {
   // We verify if a case is a valid place for a number
@@ -27,7 +27,7 @@ const GridContainer = () => {
     let localSquareRow = row - (row % 3);
     let localSquareCol = col - (col % 3);
 
-    // Commentaires
+    //! Commentaires à ajouter
     for (let i = localSquareRow; i < localSquareRow + 3; i++) {
       for (let j = localSquareCol; j < localSquareCol + 3; j++) {
         if (grid[i][j] === number) {
@@ -72,9 +72,6 @@ const GridContainer = () => {
     let puzzle = getRandomSudoku();
     solve(puzzle);
     for (let i = 0; i < 9; i++) {
-      puzzle[i] = Array(9).fill(0);
-    }
-    for (let i = 0; i < 9; i++) {
       for (let j = 0; j < 9; j++) {
         if (Math.random() > 0.3) puzzle[i][j] = 0;
       }
@@ -99,11 +96,13 @@ const GridContainer = () => {
 
   let puzzle = createPuzzle();
   solve(puzzle);
-  Util.print2DArray(puzzle);
+  // Util.print2DArray(puzzle);
 
   return (
     <>
-      <GridView />
+      <GridView
+        grid={puzzle}
+      />
     </>
   );
 };

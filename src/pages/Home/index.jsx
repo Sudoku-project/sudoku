@@ -8,7 +8,6 @@ const Home = () => {
   return (
     <div className="home">
       <Grid />
-      <footer> copyright Adrien & Clément </footer>
     </div>
   );
 };
