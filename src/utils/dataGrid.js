@@ -27,7 +27,7 @@ export const Util = {
     for (let i = 0; i < grid.length; i++) {
       console.log(...grid[i]);
     }
-    console.log();
+    // console.log(); ===> renvoie undefined, pas comme pas dans la video
   },
   copyGrid: function (from, to) {
     for (let i = 0; i < from.length; i++) {

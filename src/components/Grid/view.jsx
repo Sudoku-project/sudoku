@@ -16,14 +16,11 @@ const GridView = ({ grid }) => {
             {row.map((number, index) =>
 
               <td
-                className=
-                'grid--body--row--content'
-                // {
-                //   number === 1 ? 'grid--body--row--content red' : 'grid--body--row--content'
-                // }
+                className='grid--body--row--content'
                 key={index}
               >
-                {number}
+                {/* remplacer le '' vide par un input ou une div onClick qui accueil la proposition du joueur */}
+                {number === 0 ? '' : number}
               </td>
             )}
           </tr>
