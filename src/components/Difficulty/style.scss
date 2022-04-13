@@ -1,0 +1,39 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+.difficulty {
+  display: inline-flex;
+  overflow: hidden;
+  border-radius: 15px;
+
+  &--input {
+    display: none;
+
+    &:checked + .difficulty--label {
+      background: orange;
+    }
+  }
+
+  &--label {
+    display: inline;
+    cursor: pointer;
+    padding: 14px 20px;
+    font-size: 14px;
+    color: vars.$white;
+    background: vars.$main-color;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    transition: .1s;
+
+    &:hover {
+      background: vars.$main-hover;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:not(:last-of-type) {
+      border-right: 1px solid vars.$white;
+    }
+  }
+}

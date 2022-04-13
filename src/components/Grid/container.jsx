@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import GridView from "./view.jsx";
 
 import { Util } from '../../utils/dataGrid.js';
 
-const GridContainer = () => {
-
-  // Easy = 0.5 / Medium = 0.4 / Hard = 0.3 ?
-  const [difficulty, setDifficulty] = useState(0.3);
+const GridContainer = ({ difficulty }) => {
 
   // We verify if a case is a valid place for a number
   const isValidPlace = (grid, row, col, number) => {
@@ -77,10 +74,10 @@ const GridContainer = () => {
     solve(puzzle);
     for (let i = 0; i < 9; i++) {
       for (let j = 0; j < 9; j++) {
-        if (Math.random() > difficulty) {
-          puzzle[i][j] = 0;
-        }
-        // if (Math.random() > 0.3) puzzle[i][j] = 0;
+        // if (Math.random() > difficulty) {
+        //   puzzle[i][j] = 0;
+        // }
+        if (Math.random() > 0.3) puzzle[i][j] = 0;
       }
     }
     return puzzle;
