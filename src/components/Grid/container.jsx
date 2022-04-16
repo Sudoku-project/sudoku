@@ -74,10 +74,9 @@ const GridContainer = ({ difficulty }) => {
     solve(puzzle);
     for (let i = 0; i < 9; i++) {
       for (let j = 0; j < 9; j++) {
-        // if (Math.random() > difficulty) {
-        //   puzzle[i][j] = 0;
-        // }
-        if (Math.random() > 0.3) puzzle[i][j] = 0;
+        if (Math.random() > difficulty) {
+          puzzle[i][j] = 0;
+        }
       }
     }
     return puzzle;
@@ -99,7 +98,8 @@ const GridContainer = ({ difficulty }) => {
   };
 
   let puzzle = createPuzzle();
-  solve(puzzle);
+  // Fonction a appeler quand l'user vérifie la grille à la fin
+  // solve(puzzle);
   Util.print2DArray(puzzle);
 
   return (

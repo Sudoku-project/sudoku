@@ -10,19 +10,19 @@ const DifficultyView = ({ difficulty, setDifficulty }) => {
 
   const changeDifficulty = (newDifficulty) => {
     if (newDifficulty === 'easy') {
-      setDifficulty(0.2);
+      setDifficulty(0.5);
       easyRef.current.style.background = 'green';
       mediumRef.current.style.background = '#3498db';
       hardRef.current.style.background = '#3498db';
 
     } else if (newDifficulty === 'medium') {
-      setDifficulty(0.3);
+      setDifficulty(0.4);
       easyRef.current.style.background = '#3498db';
       mediumRef.current.style.background = 'orange';
       hardRef.current.style.background = '#3498db';
       
     } else if (newDifficulty === 'hard') {
-      setDifficulty(0.4);
+      setDifficulty(0.3);
       easyRef.current.style.background = '#3498db';
       mediumRef.current.style.background = '#3498db';
       hardRef.current.style.background = 'red';
