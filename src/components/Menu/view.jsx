@@ -1,27 +1,21 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import './style.scss';
 
-const MenuView = ({ setShowGame, setShowMenu }) => {
-
-  const startGame = () => {
-    setShowMenu(false);
-    setShowGame(true);
-  };
+const MenuView = () => {
 
   return (
-    <div className='menu'>
-      {/* Comment random la grid à partir d'ici ??? */}
+    <nav className='menu'>
 
-      <button
+      <NavLink
         className='menu--start'
-        onClick={() => {
-          startGame();
-        }}
+        to='/game'
       >
         Lancer la partie
-      </button>
-    </div>
+      </NavLink>
+
+    </nav>
   );
 };
 

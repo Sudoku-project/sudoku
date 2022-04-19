@@ -1,43 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 
-import Game from "../Game";
 import Menu from '../../components/Menu';
 import Difficulty from "../../components/Difficulty";
 
 import "./style.scss";
 
-const Home = () => {
-
-  const [difficulty, setDifficulty] = useState(0.4);
-
-  const [showGame, setShowGame] = useState(false);
-  const [showMenu, setShowMenu] = useState(true);
+const Home = ({ difficulty, setDifficulty }) => {
 
   return (
     <div className="home">
 
-      { showMenu && (
-        <>
-          <Difficulty
-            difficulty={difficulty}
-            setDifficulty={setDifficulty}
-          />
+      <Difficulty
+        difficulty={difficulty}
+        setDifficulty={setDifficulty}
+      />
 
-          <Menu
-            setShowGame={setShowGame}
-            setShowMenu={setShowMenu}
-          />
-        </>
-      )}
+      {/* Image pour la page d'accueil ? */}
 
+      <Menu
 
-      { showGame && (
-        <Game
-          difficulty={difficulty}
-          setShowGame={setShowGame}
-          setShowMenu={setShowMenu}
-        />
-      )}
+      />
+      
 
     </div>
   );

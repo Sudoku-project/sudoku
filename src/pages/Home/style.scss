@@ -1,0 +1,8 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+.home {
+  @include flexCenter;
+  flex-direction: column;
+  min-height: 100vh;
+}

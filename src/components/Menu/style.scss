@@ -1,0 +1,22 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+.menu {
+  margin-top: 50px;
+
+  &--start {
+    padding: 1em 2em;
+    border-radius: 15px;
+    background: vars.$main-color;
+    color: vars.$white;
+    transition: transform .2s;
+
+    &:hover {
+      background: vars.$main-hover;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}
