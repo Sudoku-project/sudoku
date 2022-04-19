@@ -9,8 +9,18 @@
   &--input {
     display: none;
 
-    &:checked + .difficulty--label {
-      background: orange;
+    &:checked {
+      &.easy + .difficulty--label {
+        background: green;
+      }
+
+      &.medium + .difficulty--label {
+        background: orange;
+      }
+
+      &.hard + .difficulty--label {
+        background: red;
+      }
     }
   }
 
