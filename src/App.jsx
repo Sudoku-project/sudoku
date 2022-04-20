@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-        
+
       <Routes>
 
         <Route
@@ -41,6 +41,6 @@ const App = () => {
 
     </BrowserRouter>
   );
-}
+};
 
 export default App;

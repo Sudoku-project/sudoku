@@ -1,9 +1,21 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import GridView from "./view.jsx";
 
 import { Util } from '../../utils/dataGrid.js';
 
 const GridContainer = ({ difficulty }) => {
+  const [sudokuGrid, setSudokuGrid] = useState([]);
+
+  useEffect(() => {
+  
+
+    let puzzle = createPuzzle();
+
+    setSudokuGrid(puzzle);
+
+  }, []);
+
+  console.log(sudokuGrid)
 
   // We verify if a case is a valid place for a number
   const isValidPlace = (grid, row, col, number) => {
@@ -41,6 +53,7 @@ const GridContainer = ({ difficulty }) => {
   };
 
   const solve = (grid) => {
+  
     // For each row,
     for (let row = 0; row < 9; row++) {
       // and each column,
@@ -56,6 +69,7 @@ const GridContainer = ({ difficulty }) => {
 
               // If the entire grid is ok, we return true
               if (solve(grid)) {
+            
                 return true;
               }
 
@@ -66,6 +80,7 @@ const GridContainer = ({ difficulty }) => {
         }
       }
     }
+   setSudokuGrid(grid)
     return true;
   };
 
@@ -90,21 +105,20 @@ const GridContainer = ({ difficulty }) => {
     for (let i = 0; i < 8; i++) {
       let number = Math.floor(Math.random() * 8) + 1;
       while (!isValidPlace(puzzle, 0, i, number)) {
-        number = Math.floor(Math.random() * 8) + 1;
+        number = Math.floor(Math.random() * 8) +  1;
       }
       puzzle[0][i] = number;
     }
     return puzzle;
   };
-
-  let puzzle = createPuzzle();
   // Fonction a appeler quand l'user vérifie la grille à la fin
   // solve(puzzle);
-  Util.print2DArray(puzzle);
 
   return (
     <GridView
-      grid={puzzle}
+      grid={sudokuGrid}
+      setSudokuGrid={setSudokuGrid}
+      solveGrid={solve}
     />
   );
 };
