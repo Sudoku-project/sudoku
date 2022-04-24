@@ -8,12 +8,18 @@ console.log(grid)
   return (
     <section className='functionalities'>
       <button
-        className='functionnalities--button'
-        onClick={()=>solveGrid(grid)}
+        className='functionalities--button functionalities--button--solve'
+        onClick={()=> {
+          solveGrid(grid);
+          // const solved = solveGrid(grid);
+          // setSudokuGrid(solved);
+        }}
       >
         Résoudre
       </button>
-      <button>
+      <button
+        className='functionalities--button functionalities--button--verify'
+      >
         Vérifier
       </button>
     </section>

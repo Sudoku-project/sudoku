@@ -8,10 +8,10 @@ const GridContainer = ({ difficulty }) => {
 
   useEffect(() => {
   
-
     let puzzle = createPuzzle();
 
     setSudokuGrid(puzzle);
+    localStorage.setItem('grid', JSON.stringify(puzzle));
 
   }, []);
 

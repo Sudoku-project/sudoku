@@ -1,6 +1,8 @@
 import React from "react";
 
 import Functionalities from "../Functionalities";
+import Box from '../Box';
+
 import './style.scss';
 
 const GridView = ({ grid, solveGrid, setSudokuGrid }) => {
@@ -18,11 +20,10 @@ const GridView = ({ grid, solveGrid, setSudokuGrid }) => {
               {row.map((number, index) =>
 
                 <td
-                  className='grid--body--row--content'
+                  className={number === 0 ? 'grid--body--row--content empty' : 'grid--body--row--content full'}
                   key={index}
                 >
-                  {/* remplacer le '' vide par un input ou une div onClick qui accueille la proposition du joueur */}
-                  {number === 0 ? '' : number}
+                  {number === 0 ? <Box /> : number}
                 </td>
               )}
             </tr>

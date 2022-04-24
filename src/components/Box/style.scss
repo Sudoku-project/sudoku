@@ -1,0 +1,24 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+.box {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  text-align: center;
+  font-size: 2.5vh;
+  color: vars.$main-color;
+
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+
+  &:focus {
+    box-shadow: inset 0 0 7px 1px vars.$black;
+  }
+}

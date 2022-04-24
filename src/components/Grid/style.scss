@@ -16,10 +16,10 @@
       &--content {
         border: 1px solid vars.$black;
         width: 5vh;
-        /* min-width: 5vh;
+        min-width: 5vh;
         max-width: 5vh;
         min-height: 5vh;
-        max-height: 5vh; */
+        max-height: 5vh;
         height: 5vh;
         text-align: center;
         vertical-align: middle;
@@ -28,12 +28,17 @@
         &:nth-child(3n) {
           border-right: 3px solid vars.$black;
         }
+
+        &.empty {
+          &:hover {
+            background: vars.$light-grey;
+          }
+        }
+
+        &.full {
+          cursor: default;
+        }
       }
     }
   }
-}
-
-.red {
-  color: red;
-  font-weight: bold;
 }
