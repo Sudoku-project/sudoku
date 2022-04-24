@@ -1,12 +1,11 @@
 import React from 'react';
 import MenuView from './view';
 
-const MenuContainer = ({ setShowGame, setShowMenu }) => {
+const MenuContainer = ({ hasPreviousGames }) => {
 
   return (
     <MenuView
-      setShowGame={setShowGame}
-      setShowMenu={setShowMenu}
+      hasPreviousGames={hasPreviousGames}
     />
   );
 };

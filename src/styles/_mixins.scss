@@ -31,3 +31,14 @@
   opacity: 0;
   animation: apparition $time $delay ease-out forwards;
 }
+
+@mixin buttonStyle {
+  padding: 1em 2em;
+  border-radius: 15px;
+  color: vars.$white;
+  transition: transform .1s;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

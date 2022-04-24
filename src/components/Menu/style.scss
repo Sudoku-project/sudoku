@@ -4,19 +4,23 @@
 .menu {
   margin-top: 50px;
 
-  &--start {
-    padding: 1em 2em;
-    border-radius: 15px;
-    background: vars.$main-color;
-    color: vars.$white;
-    transition: transform .2s;
+  &--link {
+    @include buttonStyle;
 
-    &:hover {
-      background: vars.$main-hover;
+    &.start {
+      background: vars.$main-color;
+
+      &:hover {
+        background: vars.$main-hover;
+      }
     }
 
-    &:active {
-      transform: scale(0.9);
+    &.previous {
+      background: #ec7f19;
+
+      &:hover {
+        background: #ee9037;
+      }
     }
   }
 }

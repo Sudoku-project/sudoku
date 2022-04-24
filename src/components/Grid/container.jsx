@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react";
 import GridView from "./view.jsx";
 
-import { Util } from '../../utils/dataGrid.js';
+// import { Util } from '../../utils/dataGrid.js';
 
 const GridContainer = ({ difficulty }) => {
+
   const [sudokuGrid, setSudokuGrid] = useState([]);
 
   useEffect(() => {
@@ -14,8 +15,6 @@ const GridContainer = ({ difficulty }) => {
     localStorage.setItem('grid', JSON.stringify(puzzle));
 
   }, []);
-
-  console.log(sudokuGrid)
 
   // We verify if a case is a valid place for a number
   const isValidPlace = (grid, row, col, number) => {
@@ -53,7 +52,6 @@ const GridContainer = ({ difficulty }) => {
   };
 
   const solve = (grid) => {
-  
     // For each row,
     for (let row = 0; row < 9; row++) {
       // and each column,
@@ -67,9 +65,9 @@ const GridContainer = ({ difficulty }) => {
               // Then, we place this number on the right case
               grid[row][col] = guess;
 
-              // If the entire grid is ok, we return true
+              // If the entire grid is ok,
               if (solve(grid)) {
-            
+                // we return true
                 return true;
               }
 
@@ -80,13 +78,16 @@ const GridContainer = ({ difficulty }) => {
         }
       }
     }
-   setSudokuGrid(grid)
+    // setSudokuGrid(grid)
     return true;
   };
 
   const createPuzzle = () => {
+    // Get a random grid and solve it
     let puzzle = getRandomSudoku();
     solve(puzzle);
+
+    // then remplace some numbers with a 0 for hide it in JSX
     for (let i = 0; i < 9; i++) {
       for (let j = 0; j < 9; j++) {
         if (Math.random() > difficulty) {
@@ -98,27 +99,29 @@ const GridContainer = ({ difficulty }) => {
   };
 
   const getRandomSudoku = () => {
+    // Init an empty array and fill it with only 0
     let puzzle = [];
     for (let i = 0; i < 9; i++) {
       puzzle[i] = Array(9).fill(0);
     }
+
+    // verify in every case if the place is valid
     for (let i = 0; i < 8; i++) {
       let number = Math.floor(Math.random() * 8) + 1;
       while (!isValidPlace(puzzle, 0, i, number)) {
         number = Math.floor(Math.random() * 8) +  1;
       }
+      // if yes, place a number
       puzzle[0][i] = number;
     }
     return puzzle;
   };
-  // Fonction a appeler quand l'user vérifie la grille à la fin
-  // solve(puzzle);
 
   return (
     <GridView
       grid={sudokuGrid}
+      solve={solve}
       setSudokuGrid={setSudokuGrid}
-      solveGrid={solve}
     />
   );
 };

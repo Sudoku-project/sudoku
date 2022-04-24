@@ -1,28 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Menu from '../../components/Menu';
 import Difficulty from "../../components/Difficulty";
 
 import "./style.scss";
 
-const Home = ({ difficulty, setDifficulty }) => {
+const Home = ({ setDifficulty, hasPreviousGames }) => {
 
   return (
-    <div className="home">
+    <main className="home">
 
       <Difficulty
-        difficulty={difficulty}
         setDifficulty={setDifficulty}
       />
 
       {/* Image pour la page d'accueil ? */}
 
       <Menu
-
+        hasPreviousGames={hasPreviousGames}
       />
       
 
-    </div>
+    </main>
   );
 };
 

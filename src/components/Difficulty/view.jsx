@@ -37,7 +37,7 @@ const DifficultyView = ({ setDifficulty }) => {
           setDifficulty(0.4);
         }}
       >
-        Medium
+        Normal
       </label>
       
       <input

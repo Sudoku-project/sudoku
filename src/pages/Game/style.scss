@@ -1,0 +1,14 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+.game {
+  &--link {
+    @include posFixed(20px, auto, auto, 20px);
+    @include buttonStyle;
+    background: vars.$main-color;
+
+    &:hover {
+      background: vars.$main-hover;
+    }
+  }
+}

@@ -9,7 +9,7 @@ const BoxView = ({ handleKeyDown, number }) => {
       className='box'
       type='number'
       readOnly
-      value={number === '0' ? '' : number}
+      value={number === 0 ? '' : number}
       onKeyDown={(event) => {
         handleKeyDown(event);
       }}

@@ -2,26 +2,30 @@ import React from 'react';
 
 import './style.scss';
 
-const FunctionalitiesView = ({ solveGrid, grid, setSudokuGrid }) => {
-console.log(grid)
+const FunctionalitiesView = ({ handleGiveup, handleGameOver, gridDone }) => {
 
   return (
     <section className='functionalities'>
-      <button
-        className='functionalities--button functionalities--button--solve'
-        onClick={()=> {
-          solveGrid(grid);
-          // const solved = solveGrid(grid);
-          // setSudokuGrid(solved);
-        }}
-      >
-        Résoudre
-      </button>
-      <button
-        className='functionalities--button functionalities--button--verify'
-      >
-        Vérifier
-      </button>
+      {!gridDone && (
+        <button
+          className='functionalities--button functionalities--button--solve'
+          onClick={()=> {
+            handleGiveup();
+          }}
+        >
+          Solution
+        </button>
+      )}
+      {gridDone && (
+        <button
+          className='functionalities--button functionalities--button--verify'
+          onClick={() => {
+            handleGameOver();
+          }}
+        >
+          Vérifier
+        </button>
+      )}
     </section>
   );
 };

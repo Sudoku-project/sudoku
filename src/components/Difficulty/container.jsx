@@ -2,11 +2,10 @@ import React from 'react';
 import DifficultyView from './view.jsx';
 
 
-const DifficultyContainer = ({ difficulty, setDifficulty }) => {
+const DifficultyContainer = ({ setDifficulty }) => {
 
   return (
     <DifficultyView
-      difficulty={difficulty}
       setDifficulty={setDifficulty}
     />
   );
