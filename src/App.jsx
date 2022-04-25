@@ -49,6 +49,7 @@ const App = () => {
           }
         />
 
+{/* rendre la route accessible que si il y a des previousGames */}
         <Route
           path='/list'
           element={

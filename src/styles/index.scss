@@ -5,6 +5,7 @@
 
 body {
   font-family: 'Rubik', sans-serif;
+  background: vars.$white;
 
   ::selection {
     background-color: vars.$main-color;

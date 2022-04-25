@@ -33,6 +33,7 @@
 }
 
 @mixin buttonStyle {
+  text-align: center;
   padding: 1em 2em;
   border-radius: 15px;
   color: vars.$white;
