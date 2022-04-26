@@ -155,6 +155,7 @@ const GridContainer = ({ difficulty, hasPreviousGames, setHasPreviousGames }) =>
       solve={solve}
       setSudokuGrid={setSudokuGrid}
       gridID={gridID}
+      setHasPreviousGames={setHasPreviousGames}
     />
   );
 };

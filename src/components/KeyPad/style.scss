@@ -3,6 +3,7 @@
 
 
 .keypad {
+  @include posFixed(auto, auto, 5px, 5px);
   @include animApparition(0.5s);
   transform: translateY(20px);
 
@@ -11,11 +12,11 @@
     flex-wrap: wrap;
     width: 300px;
     background: vars.$black;
-    border-radius: 10px;
+    border-radius: 5px;
 
     &--item {
       &--button {
-        border-radius: 10px;
+        border-radius: 5px;
         width: 100px;
         height: 100px;
         font-size: 20px;

@@ -4,7 +4,7 @@ import FunctionalitiesView from './view';
 
 import './style.scss';
 
-const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID }) => {
+const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID, setHasPreviousGames }) => {
 
   // If user give up,
   const handleGiveup = () => {
@@ -22,6 +22,7 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
     
     if(grids.length === 1) {
       localStorage.removeItem('grids');
+      setHasPreviousGames(false);
     } else {
       grids.splice(gridID, 1);
       localStorage.setItem('grids', JSON.stringify(grids));

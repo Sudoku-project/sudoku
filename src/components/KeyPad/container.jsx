@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import KeyPadView from './view';
 
 import './style.scss';

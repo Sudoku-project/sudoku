@@ -20,7 +20,7 @@ const DifficultyView = ({ setDifficulty }) => {
           setDifficulty(0.5);
         }}
       >
-        Facile
+        👶🏼 Facile
       </label>
 
       <input
@@ -37,7 +37,7 @@ const DifficultyView = ({ setDifficulty }) => {
           setDifficulty(0.4);
         }}
       >
-        Normal
+        👩🏼 Normal
       </label>
       
       <input
@@ -53,7 +53,7 @@ const DifficultyView = ({ setDifficulty }) => {
           setDifficulty(0.3);
         }}
       >
-        Difficile
+        😈 Difficile
       </label>
 
     </section>

@@ -6,7 +6,7 @@ import Functionalities from "../Functionalities";
 
 import './style.scss';
 
-const GridView = ({ grid, solve, setSudokuGrid, gridID }) => {
+const GridView = ({ grid, solve, setSudokuGrid, gridID, setHasPreviousGames }) => {
 
   const [gridDone, setGridDone] = useState(false);
   const [showKeyPad, setShowKeyPad] = useState(false);
@@ -53,6 +53,7 @@ const GridView = ({ grid, solve, setSudokuGrid, gridID }) => {
         setSudokuGrid={setSudokuGrid}
         gridDone={gridDone}
         gridID={gridID}
+        setHasPreviousGames={setHasPreviousGames}
       />
 
       {showKeyPad && (
