@@ -2,10 +2,10 @@ import React from 'react';
 
 import './style.scss';
 
-const KeyPadView = ({ setNumberFromKeyPad }) => {
+const KeyPadView = ({ setNumberInput }) => {
 
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
+  
   return (
     <section className='keypad'>
       <ul className='keypad--numbers'>
@@ -19,7 +19,7 @@ const KeyPadView = ({ setNumberFromKeyPad }) => {
             <button
               className='keypad--numbers--item--button'
               onClick={() => {
-                setNumberFromKeyPad(number);
+                setNumberInput(number);
               }}
             >
               {number}

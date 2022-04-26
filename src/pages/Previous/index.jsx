@@ -7,11 +7,11 @@ const Previous = ({ previousGrids }) => {
   return (
     <div className='previous'>
 
-      {/* {previousGrids.map((grid, index) => {
+      {previousGrids.map((grid, index) => {
         <li>
           {index} - {grid}
         </li>
-      })} */}
+      })}
       
     </div>
   );

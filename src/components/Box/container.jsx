@@ -3,12 +3,11 @@ import BoxView from './view';
 
 import './style.scss';
 
-const BoxContainer = ({ number, row, column, setGridDone, gridID, setShowKeyPad }) => {
+const BoxContainer = ({ row, column, setGridDone, gridID, setInputFocused, numberInput, setNumberInput, number }) => {
 
-  const [numberInput, setNumberInput] = useState(number);
+  
 
   const handleKeyDown = (event) => {
-
     // Transform string into integer
     const newNumber = parseInt(event.key, 10);
 
@@ -48,8 +47,9 @@ const BoxContainer = ({ number, row, column, setGridDone, gridID, setShowKeyPad 
     <>
       <BoxView
         handleKeyDown={handleKeyDown}
-        number={numberInput}
-        setShowKeyPad={setShowKeyPad}
+        numberInput={numberInput}
+        setInputFocused={setInputFocused}
+        number={number}
       />
     </>
   );

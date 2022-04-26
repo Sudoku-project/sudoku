@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import KeyPadView from './view';
 
 import './style.scss';
 
-const KeyPadContainer = ({ setNumberFromKeyPad }) => {
+const KeyPadContainer = ({ setNumberInput }) => {
 
   return (
     <KeyPadView
-      setNumberFromKeyPad={setNumberFromKeyPad}
+      setNumberInput={setNumberInput}
     />
   );
 };
