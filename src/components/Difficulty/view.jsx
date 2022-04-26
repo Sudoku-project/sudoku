@@ -17,7 +17,7 @@ const DifficultyView = ({ setDifficulty }) => {
         className='difficulty--label'
         htmlFor='easy'
         onClick={() => {
-          setDifficulty(0.5);
+          setDifficulty(0.95);
         }}
       >
         👶🏼 Facile

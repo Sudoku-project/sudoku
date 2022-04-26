@@ -68,6 +68,7 @@ const GridView = ({
         rowId={rowId}
         columnId={columnId}
         gridID={gridID}
+        setGridDone={setGridDone}
       />
     </>
   );

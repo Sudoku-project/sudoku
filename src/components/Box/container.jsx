@@ -12,6 +12,7 @@ const BoxContainer = ({
   setColumnId,
   setRowId,
 }) => {
+
   const [numberInput, setNumberInput] = useState(number);
 
   const handleKeyDown = (event) => {

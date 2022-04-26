@@ -11,7 +11,6 @@ import './styles/index.scss';
 const App = () => {
 
   const [difficulty, setDifficulty] = useState(0.4);
-  const [previousGrids, setPreviousGrids] = useState();
   const [hasPreviousGames, setHasPreviousGames] = useState(false);
 
   useEffect(() => {
@@ -19,10 +18,7 @@ const App = () => {
 
     if(previousGames) {
       setHasPreviousGames(true);
-      const parsedGames = JSON.parse(previousGames);
-      setPreviousGrids(parsedGames);
     };
-
   }, []);
 
   return (
@@ -55,9 +51,7 @@ const App = () => {
         <Route
           path='/list'
           element={
-            <Previous
-              previousGrids={previousGrids}
-            />
+            <Previous />
           }
         />
 

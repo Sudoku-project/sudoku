@@ -38,9 +38,13 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
     const solvedGrid = JSON.stringify([...grid]);
 
     // and get the actual grid from user local storage
-    const playedGrid = localStorage.getItem('grid');
+    const playedGrid = JSON.parse(localStorage.getItem('grids'));
+    const gridToCheck = JSON.stringify(playedGrid[gridID]);
 
-    if (playedGrid === solvedGrid) {
+    console.log(gridToCheck);
+    console.log(solvedGrid);
+
+    if (gridToCheck === solvedGrid) {
       console.log('well played');
     } else {
       console.log('try again');

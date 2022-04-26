@@ -15,7 +15,9 @@ const BoxView = ({ handleKeyDown, numberInput, handleClickBox }) => {
       onKeyDown={(event) => {
         handleKeyDown(event);
       }}
-      onClick={handleClickBox}
+      onClick={() => {
+        handleClickBox();
+      }}
     />
   );
 };
