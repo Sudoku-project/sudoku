@@ -5,42 +5,30 @@ import Grid from "../../components/Grid";
 
 import './style.scss';
 
-const Game = ({ difficulty, setHasPreviousGames }) => {
+import home from '../../media/icons/home.svg';
 
-  const saveGame = () => {
-    const actualGame = JSON.parse(localStorage.getItem('grid'));
-    const previousGame = JSON.parse(localStorage.getItem('previousGames'));
-
-    if(previousGame) {
-
-      let gamesToSave = [...previousGame];
-      gamesToSave.push(actualGame);
-      localStorage.setItem('previousGames', JSON.stringify(gamesToSave));
-      setHasPreviousGames(true);
-
-    } else {
-
-      let gamesToSave = [];
-      gamesToSave.push(actualGame);
-      localStorage.setItem('previousGames', JSON.stringify(gamesToSave));
-      setHasPreviousGames(true);
-    };
-  };
+const Game = ({ difficulty, hasPreviousGames, setHasPreviousGames }) => {
 
   return (
     <div className='game'>
       <NavLink
         className='game--link'
         to='/'
-        onClick={() => {
-          saveGame();
-        }}
       >
+        <div className='game--link--img'>
+          <img
+            src={home}
+            alt="Revenir à l'accueil"
+            className='game--link--img--icon'
+          />
+        </div>
         Accueil
       </NavLink>
 
       <Grid
         difficulty={difficulty}
+        hasPreviousGames={hasPreviousGames}
+        setHasPreviousGames={setHasPreviousGames}
       />
 
     </div>

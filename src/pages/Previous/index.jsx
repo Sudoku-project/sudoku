@@ -8,7 +8,7 @@ const Previous = ({ previousGrids }) => {
     <div className='previous'>
       {previousGrids.map((grid, index) => {
         <li>
-          grid {index}
+          {index} - {grid}
         </li>
       })
       }

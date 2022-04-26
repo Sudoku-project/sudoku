@@ -3,6 +3,9 @@ import { NavLink } from 'react-router-dom';
 
 import './style.scss';
 
+import arrow from '../../media/icons/arrow.svg';
+import save from '../../media/icons/save.svg';
+
 const MenuView = ({ hasPreviousGames }) => {
 
   return (
@@ -12,9 +15,15 @@ const MenuView = ({ hasPreviousGames }) => {
         className='menu--link start'
         to='/game'
       >
+        <div className='menu--link--img'>
+          <img
+            src={arrow}
+            alt='Lancer la partie'
+            className='menu--link--img--icon'
+          />
+        </div>
         Lancer la partie
       </NavLink>
-
 
       {hasPreviousGames && (
 
@@ -22,6 +31,13 @@ const MenuView = ({ hasPreviousGames }) => {
           className='menu--link previous'
           to='/list'
         >
+          <div className='menu--link--img'>
+            <img
+              src={save}
+              alt='Parties sauvegardées'
+              className='menu--link--img--icon'
+            />
+          </div>
           Grilles sauvegardées
         </NavLink>
       )}

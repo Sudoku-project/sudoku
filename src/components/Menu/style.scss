@@ -25,5 +25,10 @@
         background: #ee9037;
       }
     }
+
+    &--img {
+      @include imgStyle;
+      margin-right: 0.5rem;
+    }
   }
 }

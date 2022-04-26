@@ -33,13 +33,25 @@
 }
 
 @mixin buttonStyle {
-  text-align: center;
-  padding: 1em 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9em 1.8em;
   border-radius: 15px;
   color: vars.$white;
   transition: transform .1s;
 
   &:active {
     transform: scale(0.95);
+  }
+}
+
+@mixin imgStyle {
+  width: 20px;
+  height: 20px;
+
+  &--icon {
+    width: 100%;
+    height: 100%;
   }
 }

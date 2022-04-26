@@ -10,16 +10,17 @@ import './styles/index.scss';
 
 const App = () => {
 
-  const [difficulty, setDifficulty] = useState();
+  const [difficulty, setDifficulty] = useState(0.4);
   const [previousGrids, setPreviousGrids] = useState();
   const [hasPreviousGames, setHasPreviousGames] = useState(false);
 
   useEffect(() => {
-    const previousGames = localStorage.getItem('previousGames');
+    const previousGames = localStorage.getItem('grids');
 
     if(previousGames) {
       setHasPreviousGames(true);
-      setPreviousGrids(previousGames);
+      const parsedGames = JSON.parse(previousGames);
+      setPreviousGrids(parsedGames);
     };
 
   }, []);
@@ -44,6 +45,7 @@ const App = () => {
           element={
             <Game
               difficulty={difficulty}
+              hasPreviousGames={hasPreviousGames}
               setHasPreviousGames={setHasPreviousGames}
             />
           }

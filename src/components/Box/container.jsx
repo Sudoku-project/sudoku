@@ -3,7 +3,7 @@ import BoxView from './view';
 
 import './style.scss';
 
-const BoxContainer = ({ number, row, column, setGridDone }) => {
+const BoxContainer = ({ number, row, column, setGridDone, gridID }) => {
 
   const [numberInput, setNumberInput] = useState(number);
 
@@ -19,21 +19,26 @@ const BoxContainer = ({ number, row, column, setGridDone }) => {
       setNumberInput(newNumber);
       
       // Get previous grid from local storage
-      const previousGrid = JSON.parse(localStorage.getItem('grid'));
+      const previousGrids = JSON.parse(localStorage.getItem('grids'));
       
       // Copy previous grid in a the new const
-      const grid = [...previousGrid];
+      const grids = [...previousGrids];
       
-      // Then change the right number
-      grid[row][column] = newNumber;
-      
-      // Stringify this grid
-      const newGrid = JSON.stringify(grid);
+      // Then change the right number in the right grid
+      grids[gridID][row][column] = newNumber;
 
-      // We can finally push this new grid in local storage for save the game
-      localStorage.setItem('grid', newGrid);
+      // Stringify new grids
+      const newGrids = JSON.stringify(grids);
       
-      if(!newGrid.includes(0)) {
+      // We can finally push this new grid in local storage for save the game
+      localStorage.setItem('grids', newGrids);
+
+      // We check if our actual grid is complete
+      const gridToCheck = JSON.stringify(grids[gridID]);
+
+      // if our grid don't contains any 0,
+      if(!gridToCheck.includes(0)) {
+        // update state
         setGridDone(true);
       };
     };

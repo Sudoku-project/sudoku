@@ -5,7 +5,7 @@ import Box from '../Box';
 
 import './style.scss';
 
-const GridView = ({ grid, solve, setSudokuGrid }) => {
+const GridView = ({ grid, solve, setSudokuGrid, gridID }) => {
 
   const [gridDone, setGridDone] = useState(false);
 
@@ -19,7 +19,7 @@ const GridView = ({ grid, solve, setSudokuGrid }) => {
               className='grid--body--row'
               key={rowIndex}
             >
-              {row.map((number, columnIndex) => 
+              {row.map((number, columnIndex) =>
 
                 <td
                   className={number === 0 ? 'grid--body--row--content empty' : 'grid--body--row--content full'}
@@ -32,6 +32,7 @@ const GridView = ({ grid, solve, setSudokuGrid }) => {
                       row={rowIndex}
                       column={columnIndex}
                       setGridDone={setGridDone}
+                      gridID={gridID}
                     />
                   :
                     number
@@ -48,6 +49,7 @@ const GridView = ({ grid, solve, setSudokuGrid }) => {
         solve={solve}
         setSudokuGrid={setSudokuGrid}
         gridDone={gridDone}
+        gridID={gridID}
       />
     </>
   );

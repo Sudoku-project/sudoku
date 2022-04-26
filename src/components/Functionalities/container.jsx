@@ -4,7 +4,7 @@ import FunctionalitiesView from './view';
 
 import './style.scss';
 
-const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone }) => {
+const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID }) => {
 
   // If user give up,
   const handleGiveup = () => {
@@ -15,6 +15,17 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone }) => {
 
     // then update state
     setSudokuGrid(solvedGrid);
+
+
+    // Delete this grid from local storage
+    const grids = JSON.parse(localStorage.getItem('grids'));
+    
+    if(grids.length === 1) {
+      localStorage.removeItem('grids');
+    } else {
+      grids.splice(gridID, 1);
+      localStorage.setItem('grids', JSON.stringify(grids));
+    };
   };
 
   // If user finished the grid,

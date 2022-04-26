@@ -7,18 +7,27 @@
   width: 100%;
 
   &--button {
-    color: vars.$white;
-    margin: 0 1em;
-    padding: 0.8em 1.7em;
-    border-radius: 15px;
+    @include buttonStyle;
     font-size: 1.5vh;
-    transition: .1s;
+
+    &--img {
+      @include imgStyle;
+      margin-right: 0.5em;
+    }
 
     &--solve {
       background: vars.$red;
 
       &:hover {
         background: vars.$red-hover;
+      }
+    }
+
+    &--save {
+      background: vars.$main-color;
+
+      &:hover {
+        background: vars.$main-hover;
       }
     }
 

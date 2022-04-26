@@ -3,16 +3,41 @@ import GridView from "./view.jsx";
 
 // import { Util } from '../../utils/dataGrid.js';
 
-const GridContainer = ({ difficulty }) => {
+const GridContainer = ({ difficulty, hasPreviousGames, setHasPreviousGames }) => {
+
+  // Il faut que toute cette logique là soit dans App.jsx si on veut pouvoir jouer aux anciennes grilles sauvegardées
 
   const [sudokuGrid, setSudokuGrid] = useState([]);
+  const [gridID, setGridID] = useState(0);
 
   useEffect(() => {
+
+    //! double rendu à cause du useEffect ? ça met deux grilles dans le local storage
   
     let puzzle = createPuzzle();
 
+    // set this new puzzle in state
     setSudokuGrid(puzzle);
-    localStorage.setItem('grid', JSON.stringify(puzzle));
+
+    // if user already played grids before this game,
+    if(hasPreviousGames) {
+      // get them from local storage & parse them
+      const previousGames = JSON.parse(localStorage.getItem('grids'));
+
+      // set the ID of actual new grid from length of the previousGames
+      setGridID(previousGames.length);
+
+      // set the new grid in local storage with the previous
+      const games = [...previousGames, puzzle];
+      localStorage.setItem('grids', JSON.stringify(games));
+    } else {
+      // If this is the first game for user, just set this grid in local storage for save it
+      const games = [puzzle];
+      localStorage.setItem('grids', JSON.stringify(games));
+
+      // & update state
+      setHasPreviousGames(true);
+    };
 
   }, []);
 
@@ -122,6 +147,7 @@ const GridContainer = ({ difficulty }) => {
       grid={sudokuGrid}
       solve={solve}
       setSudokuGrid={setSudokuGrid}
+      gridID={gridID}
     />
   );
 };

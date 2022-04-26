@@ -2,6 +2,9 @@ import React from 'react';
 
 import './style.scss';
 
+import cross from '../../media/icons/cross.svg';
+import loop from '../../media/icons/loop.svg';
+
 const FunctionalitiesView = ({ handleGiveup, handleGameOver, gridDone }) => {
 
   return (
@@ -13,6 +16,13 @@ const FunctionalitiesView = ({ handleGiveup, handleGameOver, gridDone }) => {
             handleGiveup();
           }}
         >
+          <div className='functionalities--button--img'>
+            <img
+              src={cross}
+              alt="Abandonner"
+              className='functionalities--button--img--icon'
+            />
+          </div>
           Solution
         </button>
       )}
@@ -23,6 +33,13 @@ const FunctionalitiesView = ({ handleGiveup, handleGameOver, gridDone }) => {
             handleGameOver();
           }}
         >
+          <div className='functionalities--button--img'>
+            <img
+              src={loop}
+              alt="Vérifier ma grille"
+              className='functionalities--button--img--icon'
+            />
+          </div>
           Vérifier
         </button>
       )}
