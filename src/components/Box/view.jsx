@@ -1,23 +1,21 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 
-import './style.scss';
+import "./style.scss";
 
-const BoxView = ({ handleKeyDown, numberInput, setInputFocused, number }) => {
-
+const BoxView = ({ handleKeyDown, numberInput, handleClickBox }) => {
   const inputRef = useRef(null);
 
   return (
     <input
-      
       ref={inputRef}
-      className='box'
-      type='number'
+      className="box"
+      type="number"
       readOnly
-      value={number === 0 ? '' : numberInput}
+      value={numberInput === 0 ? "" : numberInput}
       onKeyDown={(event) => {
         handleKeyDown(event);
       }}
-      onClick={()=>setInputFocused(inputRef.current)}
+      onClick={handleClickBox}
     />
   );
 };
