@@ -46,8 +46,8 @@ const BoxContainer = ({
       if (!gridToCheck.includes(0)) {
         // update state
         setGridDone(true);
-      }
-    }
+      };
+    };
   };
 
   const handleClickBox = () => {

@@ -44,6 +44,7 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
     console.log(gridToCheck);
     console.log(solvedGrid);
 
+    // faire un composant "gagné" et faire disparaitre ce bouton si c'est gagné
     if (gridToCheck === solvedGrid) {
       console.log('well played');
     } else {
