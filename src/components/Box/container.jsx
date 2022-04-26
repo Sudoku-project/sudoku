@@ -3,7 +3,7 @@ import BoxView from './view';
 
 import './style.scss';
 
-const BoxContainer = ({ number, row, column, setGridDone, gridID }) => {
+const BoxContainer = ({ number, row, column, setGridDone, gridID, setShowKeyPad }) => {
 
   const [numberInput, setNumberInput] = useState(number);
 
@@ -45,10 +45,13 @@ const BoxContainer = ({ number, row, column, setGridDone, gridID }) => {
   };
 
   return (
-    <BoxView
-      handleKeyDown={handleKeyDown}
-      number={numberInput}
-    />
+    <>
+      <BoxView
+        handleKeyDown={handleKeyDown}
+        number={numberInput}
+        setShowKeyPad={setShowKeyPad}
+      />
+    </>
   );
 };
 

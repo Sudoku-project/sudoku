@@ -2,7 +2,7 @@ import React from 'react';
 
 import './style.scss';
 
-const BoxView = ({ handleKeyDown, number }) => {
+const BoxView = ({ handleKeyDown, number, setShowKeyPad }) => {
 
   return (
     <input
@@ -10,6 +10,12 @@ const BoxView = ({ handleKeyDown, number }) => {
       type='number'
       readOnly
       value={number === 0 ? '' : number}
+      onFocus={() => {
+        setShowKeyPad(true);
+      }}
+      onBlur={() => {
+        setShowKeyPad(false);
+      }}
       onKeyDown={(event) => {
         handleKeyDown(event);
       }}

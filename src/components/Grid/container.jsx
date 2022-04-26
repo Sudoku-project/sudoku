@@ -5,15 +5,22 @@ import GridView from "./view.jsx";
 
 const GridContainer = ({ difficulty, hasPreviousGames, setHasPreviousGames }) => {
 
+
+  // ********* MESSAGE POUR SAMON *********
+  //
   // Il faut que toute cette logique là soit dans App.jsx si on veut pouvoir jouer aux anciennes grilles sauvegardées
+  //
 
   const [sudokuGrid, setSudokuGrid] = useState([]);
   const [gridID, setGridID] = useState(0);
 
   useEffect(() => {
 
+    // ********* MESSAGE POUR SAMON *********
+    //
     //! double rendu à cause du useEffect ? ça met deux grilles dans le local storage
-  
+    //
+
     let puzzle = createPuzzle();
 
     // set this new puzzle in state

@@ -1,0 +1,35 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+
+.keypad {
+  @include animApparition(0.5s);
+  transform: translateY(20px);
+
+  &--numbers {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    background: vars.$black;
+    border-radius: 10px;
+
+    &--item {
+      &--button {
+        border-radius: 10px;
+        width: 100px;
+        height: 100px;
+        font-size: 20px;
+        color: vars.$white;
+        transition: transform .1s;
+
+        &:hover {
+          background-color: vars.$dark-grey;
+        }
+
+        &:active {
+          transform: scale(0.9);
+        }
+      }
+    }
+  }
+}

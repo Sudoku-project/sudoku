@@ -3,13 +3,11 @@ import KeyPadView from './view';
 
 import './style.scss';
 
-const KeyPadContainer = () => {
-
-  const [numberInput, setNumberInput] = useState(0);
+const KeyPadContainer = ({ setNumberFromKeyPad }) => {
 
   return (
     <KeyPadView
-      setNumberInput={setNumberInput}
+      setNumberFromKeyPad={setNumberFromKeyPad}
     />
   );
 };

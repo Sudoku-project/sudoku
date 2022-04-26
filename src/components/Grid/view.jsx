@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 
-import Functionalities from "../Functionalities";
 import Box from '../Box';
+import KeyPad from '../KeyPad';
+import Functionalities from "../Functionalities";
 
 import './style.scss';
 
 const GridView = ({ grid, solve, setSudokuGrid, gridID }) => {
 
   const [gridDone, setGridDone] = useState(false);
+  const [showKeyPad, setShowKeyPad] = useState(false);
 
   return (
     <>
@@ -33,6 +35,7 @@ const GridView = ({ grid, solve, setSudokuGrid, gridID }) => {
                       column={columnIndex}
                       setGridDone={setGridDone}
                       gridID={gridID}
+                      setShowKeyPad={setShowKeyPad}
                     />
                   :
                     number
@@ -51,6 +54,10 @@ const GridView = ({ grid, solve, setSudokuGrid, gridID }) => {
         gridDone={gridDone}
         gridID={gridID}
       />
+
+      {showKeyPad && (
+        <KeyPad />
+      )}
     </>
   );
 };
