@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import FunctionalitiesView from './view';
 
@@ -6,9 +6,15 @@ import './style.scss';
 
 const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID, setHasPreviousGames }) => {
 
-  const [gameWon, setGameWon] = useState(false);
   const [message, setMessage] = useState('');
-  const [giveUp, setGiveUp] = useState(false);
+  const [showGiveUpButton, setShowGiveUpButton] = useState(true);
+  const [showVerifyButton, setShowVerifyButton] = useState(false);
+
+  useEffect(() => {
+    if(gridDone === true) {
+      setShowVerifyButton(true);
+    };
+  }, [gridDone]);
 
   // If user give up,
   const handleGiveup = () => {
@@ -33,11 +39,12 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
       localStorage.setItem('grids', JSON.stringify(grids));
     };
 
-    setGiveUp(true);
+    setShowVerifyButton(false);
+    setShowGiveUpButton(false);
   };
 
   // If user finished the grid,
-  const handleGameOver = () => {
+  const handleVerifyGrid = () => {
     setMessage('');
 
     // We solve the grid
@@ -52,8 +59,15 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
 
     // faire un composant "gagné" et faire disparaitre ce bouton si c'est gagné
     if(gridToCheck === solvedGrid) {
+
+
+
       console.log('well played');
-      setGameWon(true);
+      
+
+
+      setShowGiveUpButton(false);
+      setShowVerifyButton(false);
     
       if(grids.length === 1) {
         localStorage.removeItem('grids');
@@ -63,7 +77,15 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
         localStorage.setItem('grids', JSON.stringify(grids));
       };
     } else {
+
+
+
       console.log('try again');
+
+
+
+
+
       setMessage("🛑 La grille n'est pas correcte 🛑");
     };
   };
@@ -71,11 +93,10 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
   return (
     <FunctionalitiesView
       handleGiveup={handleGiveup}
-      handleGameOver={handleGameOver}
-      gridDone={gridDone}
-      gameWon={gameWon}
+      handleVerifyGrid={handleVerifyGrid}
       message={message}
-      giveUp={giveUp}
+      showGiveUpButton={showGiveUpButton}
+      showVerifyButton={showVerifyButton}
     />
   );
 };
