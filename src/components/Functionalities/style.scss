@@ -2,46 +2,58 @@
 @import '../../styles/mixins';
 
 .functionalities {
-  @include posFixed(auto, auto, 10vh, auto);
   @include flexCenter;
+  flex-direction: column;
   width: 100%;
   z-index: 1;
 
-  &--button {
-    @include buttonStyle;
-    font-size: 1.5vh;
+  &--message {
+    color: vars.$red;
+    font-weight: bold;
+    margin: 30px 0 40px;
+    height: 1em;
+  }
 
-    &--img {
-      @include imgStyle;
-      margin-right: 0.5em;
-    }
+  &--buttons {
+    @include flexCenter;
 
-    &--solve {
-      background: vars.$red;
+    &--button {
+      @include buttonStyle;
+      font-size: 1.5vh;
+      margin: 0 1em;
 
-      &:hover {
-        background: vars.$red-hover;
+      &--img {
+        @include imgStyle;
+        margin-right: 0.5em;
       }
-    }
 
-    &--save {
-      background: vars.$main-color;
+      &--solve {
+        background: vars.$red;
 
-      &:hover {
-        background: vars.$main-hover;
+        &:hover {
+          background: vars.$red-hover;
+        }
       }
-    }
 
-    &--verify {
-      background: vars.$green;
+      &--save {
+        background: vars.$main-color;
 
-      &:hover {
-        background: vars.$green-hover;
+        &:hover {
+          background: vars.$main-hover;
+        }
       }
-    }
 
-    &:active {
-      transform: scale(0.95);
+      &--verify {
+        background: vars.$green;
+
+        &:hover {
+          background: vars.$green-hover;
+        }
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
     }
   }
 }

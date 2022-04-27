@@ -3,20 +3,6 @@
 
 .game {
   @include flexCenter;
+  flex-direction: column;
   min-height: 100vh;
-
-  &--link {
-    @include posFixed(20px, auto, auto, 20px);
-    @include buttonStyle;
-    background: vars.$main-color;
-
-    &--img {
-      @include imgStyle;
-      margin-right: 0.5rem;
-    }
-
-    &:hover {
-      background: vars.$main-hover;
-    }
-  }
 }

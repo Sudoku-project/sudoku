@@ -1,50 +1,57 @@
 import React, { useEffect, useState } from 'react';
 
+import HomeButton from '../../components/HomeButton';
+
 import './style.scss';
 
 const Previous = () => {
 
-  const [previousGrids, setPreviousGrids] = useState();
+  const [previousGrids, setPreviousGrids] = useState([]);
 
   useEffect(() => {
-    // Get previous games from local storage
     const previousGames = JSON.parse(localStorage.getItem('grids'));
-
-    console.log(previousGames);
-
-    // & update the state
-    setPreviousGrids(previousGames);
+  
+    if(previousGames) {
+      const grids = [...previousGames];
+      setPreviousGrids(grids);
+    };
   }, []);
 
   return (
     <section className='previous_grids'>
 
-      {previousGrids.map((grid, gridIndex) => 
+      <HomeButton />
 
-        <table
-          className='previous_grids--grid'
-          key={gridIndex}
-        >
-          <tbody className='previous_grids--grid--body'>
-            {grid.map((row, rowIndex) => 
-              <tr
-                className='previous_grids--grid--body--row'
-                key={rowIndex}
-              >
-                {row.map((number, columnIndex) => 
-                
-                  <td
-                    className='previous_grids--grid--body--row--content'
-                    key={columnIndex}
-                  >
-                    {number === 0 ? '' : number}
-                  </td>
-                )}
-              </tr>
-            )}
-          </tbody>
-        </table>
-      )}
+      <div className='previous_grids--container'>
+
+        {previousGrids.map((grid, gridIndex) => 
+
+          <table
+            className='previous_grids--container--grid'
+            key={gridIndex}
+          >
+            <tbody className='previous_grids--container--grid--body'>
+              {grid.map((row, rowIndex) =>
+                <tr
+                  className='previous_grids--container--grid--body--row'
+                  key={rowIndex}
+                >
+                  {row.map((number, columnIndex) =>
+                  
+                    <td
+                      className='previous_grids--container--grid--body--row--content'
+                      key={columnIndex}
+                    >
+                      {number === 0 ? '' : number}
+                    </td>
+                  )}
+                </tr>
+              )}
+            </tbody>
+          </table>
+        )}
+
+      </div>
     </section>
   );
 };

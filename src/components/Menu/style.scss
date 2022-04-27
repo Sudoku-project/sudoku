@@ -19,10 +19,10 @@
     }
 
     &.previous {
-      background: #ec7f19;
+      background: vars.$orange;
 
       &:hover {
-        background: #ee9037;
+        background: vars.$orange-hover;
       }
     }
 

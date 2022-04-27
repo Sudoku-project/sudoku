@@ -15,7 +15,7 @@ const App = () => {
 
   useEffect(() => {
     const previousGames = localStorage.getItem('grids');
-
+  
     if(previousGames) {
       setHasPreviousGames(true);
     };

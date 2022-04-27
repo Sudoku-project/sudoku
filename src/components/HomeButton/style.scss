@@ -1,0 +1,17 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+.home__button {
+  @include posFixed(20px, auto, auto, 20px);
+  @include buttonStyle;
+  background: vars.$main-color;
+
+  &--img {
+    @include imgStyle;
+    margin-right: 0.5rem;
+  }
+
+  &:hover {
+    background: vars.$main-hover;
+  }
+}

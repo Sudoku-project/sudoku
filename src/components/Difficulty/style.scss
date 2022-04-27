@@ -11,15 +11,15 @@
 
     &:checked {
       &.easy + .difficulty--label {
-        background: green;
+        background: vars.$green;
       }
 
       &.medium + .difficulty--label {
-        background: orange;
+        background: vars.$orange;
       }
 
       &.hard + .difficulty--label {
-        background: red;
+        background: vars.$red;
       }
     }
   }

@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import FunctionalitiesView from './view';
 
 import './style.scss';
 
 const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID, setHasPreviousGames }) => {
+
+  const [gameWon, setGameWon] = useState(false);
+  const [message, setMessage] = useState('');
+  const [giveUp, setGiveUp] = useState(false);
 
   // If user give up,
   const handleGiveup = () => {
@@ -16,7 +20,6 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
     // then update state
     setSudokuGrid(solvedGrid);
 
-
     // Delete this grid from local storage
     const grids = JSON.parse(localStorage.getItem('grids'));
     
@@ -27,6 +30,8 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
       grids.splice(gridID, 1);
       localStorage.setItem('grids', JSON.stringify(grids));
     };
+
+    setGiveUp(true);
   };
 
   // If user finished the grid,
@@ -47,8 +52,11 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
     // faire un composant "gagné" et faire disparaitre ce bouton si c'est gagné
     if (gridToCheck === solvedGrid) {
       console.log('well played');
+      setGameWon(true);
+      setMessage('');
     } else {
       console.log('try again');
+      setMessage("🛑 La grille n'est pas correcte 🛑")
     };
   };
 
@@ -57,6 +65,9 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
       handleGiveup={handleGiveup}
       handleGameOver={handleGameOver}
       gridDone={gridDone}
+      gameWon={gameWon}
+      message={message}
+      giveUp={giveUp}
     />
   );
 };
