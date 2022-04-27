@@ -170,27 +170,30 @@ const App = () => {
         <Route
           path='/game'
           element={
-            <Game
-              sudokuGrid={sudokuGrid}
-              setSudokuGrid={setSudokuGrid}
-              gridID={gridID}
-              solve={solve}
-              setHasPreviousGames={setHasPreviousGames}
-            />
+            sudokuGrid.length === 0 ?
+              <Navigate to='/' />
+            :
+              <Game
+                sudokuGrid={sudokuGrid}
+                setSudokuGrid={setSudokuGrid}
+                gridID={gridID}
+                solve={solve}
+                setHasPreviousGames={setHasPreviousGames}
+              />
           }
         />
 
         <Route
           path='/list'
           element={ 
-            hasPreviousGames ? 
+            hasPreviousGames ?
               <Previous 
                 setSudokuGrid={setSudokuGrid}
                 setGridID={setGridID}
                 setHasPreviousGames={setHasPreviousGames}
               /> 
-            : 
-              <Navigate to='/' /> 
+            :
+              <Navigate to='/' />
           }
         />
 
