@@ -187,6 +187,7 @@ const App = () => {
               <Previous 
                 setSudokuGrid={setSudokuGrid}
                 setGridID={setGridID}
+                setHasPreviousGames={setHasPreviousGames}
               /> 
             : 
               <Navigate to='/' /> 

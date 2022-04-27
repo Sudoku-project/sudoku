@@ -12,6 +12,8 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
 
   // If user give up,
   const handleGiveup = () => {
+    setMessage('');
+    
     // we solve the grid
     solve(grid);
 
@@ -36,6 +38,8 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
 
   // If user finished the grid,
   const handleGameOver = () => {
+    setMessage('');
+
     // We solve the grid
     solve(grid);
 
@@ -50,7 +54,6 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
     if(gridToCheck === solvedGrid) {
       console.log('well played');
       setGameWon(true);
-      setMessage('');
     
       if(grids.length === 1) {
         localStorage.removeItem('grids');

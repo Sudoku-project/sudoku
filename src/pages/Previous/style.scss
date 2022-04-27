@@ -6,48 +6,92 @@
   min-height: 100vh;
 
   &--container {
-    width: 800px;
+    padding: 10vh;
+    max-width: 1500px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 
-    &--grid {
-      cursor: pointer;
-      margin: 20px;
-      width: 180px;
-      height: 180px;
-      transition: .3s;
+    &--item {
+      @include flexCenter;
+      
+      &--button {
+        position: absolute;
+        background: vars.$main-color;
+        border-radius: 50%;
+        padding: 10px;
+        transition: .3s;
+        transform: translateY(50px);
+        opacity: 0;
 
-      &:hover {
-        transform: scale(1.2);
-        box-shadow: 0 0 10px 5px vars.$orange;
+        &--img {
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &--icon {
+            height: 100%;
+            width: 100%;
+          }
+        }
+
+        &:hover {
+          background: vars.$main-hover;
+        }
       }
 
-      &--body {
-        border: 3px solid vars.$black;
+      &--link {
+        display: flex;
+        align-items: center;
+        margin: 50px 20px;
 
-        &--row {
+        &--grid {
+          cursor: pointer;
+          width: 180px;
+          height: 180px;
+          transition: .3s;
 
-          &:nth-child(3n) {
-            border-bottom: 2px solid vars.$black;
-          }
+          &--body {
+            border: 3px solid vars.$black;
 
-          &--content {
-            border: 1px solid vars.$black;
-            width: 20px;
-            min-width: 20px;
-            max-width: 20px;
-            min-height: 20px;
-            max-height: 20px;
-            height: 20px;
-            text-align: center;
-            vertical-align: middle;
-            font-size: 10px;
+            &--row {
 
-            &:nth-child(3n) {
-              border-right: 2px solid vars.$black;
+              &:nth-child(3n) {
+                border-bottom: 2px solid vars.$black;
+              }
+
+              &--content {
+                border: 1px solid vars.$black;
+                width: 20px;
+                min-width: 20px;
+                max-width: 20px;
+                min-height: 20px;
+                max-height: 20px;
+                height: 20px;
+                text-align: center;
+                vertical-align: middle;
+                font-size: 10px;
+
+                &:nth-child(3n) {
+                  border-right: 2px solid vars.$black;
+                }
+              }
             }
           }
+        }
+      }
+
+      &:hover {
+        .previous_grids--container--item--button {
+          transform: translateY(130px);
+          opacity: 1;
+        }
+
+        .previous_grids--container--item--link--grid {
+          box-shadow: 0 0 10px 5px vars.$orange;
         }
       }
     }
