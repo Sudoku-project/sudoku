@@ -3,17 +3,24 @@ import KeyPadView from "./view";
 
 import "./style.scss";
 
-const KeyPadContainer = ({ setSudokuGrid, rowId, columnId, gridID, setGridDone }) => {
+const KeyPadContainer = ({ setNumberInput, row, column, gridID, setGridDone, keyPadRef, handleHideKeyPad }) => {
 
-  const handleChangeNewNumber = (value) => {
+  const handleChangeNumber = (value) => {
+
+    const newNumber = value;
+
+    setNumberInput(newNumber);
+
     // Get grids save from local storage
-    const grids = JSON.parse(localStorage.getItem("grids"));
+    const previousGrids = JSON.parse(localStorage.getItem("grids"));
+
+    const grids = [...previousGrids]
     
     // Change the right number in the right grid, in the right row, in the right column
-    grids[gridID][rowId][columnId] = value;
+    grids[gridID][row][column] = newNumber;
 
     // & update the state
-    setSudokuGrid(grids[gridID]);
+    // setSudokuGrid(grids[gridID]);
     
     // without forgetting to save updated grids in local storage
     localStorage.setItem("grids", JSON.stringify(grids));
@@ -23,11 +30,14 @@ const KeyPadContainer = ({ setSudokuGrid, rowId, columnId, gridID, setGridDone }
     if(!gridToChek.includes(0)) {
       setGridDone(true);
     };
+
+    handleHideKeyPad();
   };
 
   return (
-    <KeyPadView 
-      handleChangeNewNumber={handleChangeNewNumber}
+    <KeyPadView
+      handleChangeNumber={handleChangeNumber}
+      keyPadRef={keyPadRef}
     />
   );
 };

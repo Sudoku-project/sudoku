@@ -1,19 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import BoxView from "./view";
 
 import "./style.scss";
 
-const BoxContainer = ({
-  row,
-  column,
-  setGridDone,
-  gridID,
-  number,
-  setColumnId,
-  setRowId,
-}) => {
+const BoxContainer = ({ row, column, setGridDone, gridID, number }) => {
+
+  const keyPadRef = useRef(null);
 
   const [numberInput, setNumberInput] = useState(number);
+  const [showKeyPad, setShowKeyPad] = useState(false);
 
   const handleKeyDown = (event) => {
     // Transform string into integer
@@ -50,17 +45,27 @@ const BoxContainer = ({
     };
   };
 
-  const handleClickBox = () => {
-    setRowId(row);
-    setColumnId(column);
+  const handleHideKeyPad = () => {
+    keyPadRef.current.style.opacity = 0;
+
+    setTimeout(() => {
+      setShowKeyPad(false);
+    }, 300);
   };
 
   return (
     <BoxView
-      handleKeyDown={handleKeyDown}
       numberInput={numberInput}
-      number={number}
-      handleClickBox={handleClickBox}
+      setNumberInput={setNumberInput}
+      handleKeyDown={handleKeyDown}
+      row={row}
+      column={column}
+      gridID={gridID}
+      setGridDone={setGridDone}
+      keyPadRef={keyPadRef}
+      handleHideKeyPad={handleHideKeyPad}
+      showKeyPad={showKeyPad}
+      setShowKeyPad={setShowKeyPad}
     />
   );
 };

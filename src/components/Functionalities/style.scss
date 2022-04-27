@@ -5,6 +5,7 @@
   @include posFixed(auto, auto, 10vh, auto);
   @include flexCenter;
   width: 100%;
+  z-index: 1;
 
   &--button {
     @include buttonStyle;

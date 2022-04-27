@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import Box from "../Box";
-import KeyPad from "../KeyPad";
 import Functionalities from "../Functionalities";
 
 import "./style.scss";
@@ -11,11 +10,10 @@ const GridView = ({
   solve,
   setSudokuGrid,
   gridID,
-  setHasPreviousGames,
+  setHasPreviousGames
 }) => {
+
   const [gridDone, setGridDone] = useState(false);
-  const [rowId, setRowId] = useState(false);
-  const [columnId, setColumnId] = useState(false);
 
   return (
     <>
@@ -35,8 +33,6 @@ const GridView = ({
                   >
                     {number === 0 ? (
                       <Box
-                        setRowId={setRowId}
-                        setColumnId={setColumnId}
                         number={number}
                         row={rowIndex}
                         column={columnIndex}
@@ -61,14 +57,6 @@ const GridView = ({
         gridDone={gridDone}
         gridID={gridID}
         setHasPreviousGames={setHasPreviousGames}
-      />
-
-      <KeyPad
-        setSudokuGrid={setSudokuGrid}
-        rowId={rowId}
-        columnId={columnId}
-        gridID={gridID}
-        setGridDone={setGridDone}
       />
     </>
   );

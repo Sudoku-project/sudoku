@@ -1,24 +1,41 @@
-import React, { useRef } from "react";
+import React from "react";
+
+import KeyPad from '../KeyPad';
 
 import "./style.scss";
 
-const BoxView = ({ handleKeyDown, numberInput, handleClickBox }) => {
-  const inputRef = useRef(null);
+const BoxView = ({ numberInput, setNumberInput, handleKeyDown, row, column, gridID, setGridDone, keyPadRef, handleHideKeyPad, showKeyPad, setShowKeyPad }) => {
 
   return (
-    <input
-      ref={inputRef}
-      className="box"
-      type="number"
-      readOnly
-      value={numberInput === 0 ? "" : numberInput}
-      onKeyDown={(event) => {
-        handleKeyDown(event);
-      }}
-      onClick={() => {
-        handleClickBox();
-      }}
-    />
+    <>
+      <input
+        className="box"
+        type="number"
+        readOnly
+        value={numberInput === 0 ? "" : numberInput}
+        onBlur={() => {
+          handleHideKeyPad();
+        }}
+        onFocus={() => {
+          setShowKeyPad(true);
+        }}
+        onKeyDown={(event) => {
+          handleKeyDown(event);
+        }}
+      />
+
+      {showKeyPad && (
+        <KeyPad
+          setNumberInput={setNumberInput}
+          row={row}
+          column={column}
+          gridID={gridID}
+          setGridDone={setGridDone}
+          keyPadRef={keyPadRef}
+          handleHideKeyPad={handleHideKeyPad}
+        />
+      )}
+    </>
   );
 };
 

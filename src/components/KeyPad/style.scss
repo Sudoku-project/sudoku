@@ -4,10 +4,12 @@
 
 .keypad {
   @include posFixed(auto, auto, 5px, 5px);
-  @include animApparition(0.5s);
-  transform: translateY(20px);
+  transition: .3s;
+  z-index: 2;
 
   &--numbers {
+    @include animApparition(0.5s);
+    transform: translateY(20px);
     display: flex;
     flex-wrap: wrap;
     width: 300px;

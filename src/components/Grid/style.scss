@@ -2,7 +2,6 @@
 @import '../../styles/mixins';
 
 .grid {
-  @include posCenter;
 
   &--body {
     border: 5px solid vars.$black;

@@ -2,18 +2,22 @@ import React from "react";
 
 import "./style.scss";
 
-const KeyPadView = ({ handleChangeNewNumber }) => {
+const KeyPadView = ({ handleChangeNumber, keyPadRef }) => {
+
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
-    <section className="keypad">
+    <section
+      ref={keyPadRef}
+      className="keypad"
+    >
       <ul className="keypad--numbers">
         {numbers.map((number, index) => (
           <li className="keypad--numbers--item" key={index}>
             <button
               className="keypad--numbers--item--button"
               onClick={() => {
-                handleChangeNewNumber(number);
+                handleChangeNumber(number);
               }}
             >
               {number}

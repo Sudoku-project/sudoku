@@ -2,6 +2,9 @@
 @import '../../styles/mixins';
 
 .game {
+  @include flexCenter;
+  min-height: 100vh;
+
   &--link {
     @include posFixed(20px, auto, auto, 20px);
     @include buttonStyle;
