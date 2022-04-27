@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import Menu from '../../components/Menu';
 import Difficulty from "../../components/Difficulty";
 
 import "./style.scss";
 
-const Home = ({ setDifficulty, hasPreviousGames }) => {
+const Home = ({ newGame, setDifficulty, hasPreviousGames }) => {
 
   return (
     <main className="home">
@@ -17,6 +17,7 @@ const Home = ({ setDifficulty, hasPreviousGames }) => {
       {/* Image pour la page d'accueil ? */}
 
       <Menu
+        newGame={newGame}
         hasPreviousGames={hasPreviousGames}
       />
       

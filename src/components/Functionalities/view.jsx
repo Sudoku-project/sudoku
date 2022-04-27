@@ -34,7 +34,7 @@ const FunctionalitiesView = ({ handleGiveup, handleGameOver, gridDone, gameWon, 
                 Solution
               </button>
             )}
-            {gridDone && (
+            {gridDone && !gameWon && (
               <button
                 className='functionalities--buttons--button functionalities--buttons--button--verify'
                 onClick={() => {

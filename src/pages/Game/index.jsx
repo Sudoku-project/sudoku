@@ -5,7 +5,7 @@ import HomeButton from '../../components/HomeButton';
 
 import './style.scss';
 
-const Game = ({ difficulty, hasPreviousGames, setHasPreviousGames }) => {
+const Game = ({ sudokuGrid, setSudokuGrid, gridID, solve, setHasPreviousGames }) => {
 
   return (
     <div className='game'>
@@ -13,8 +13,10 @@ const Game = ({ difficulty, hasPreviousGames, setHasPreviousGames }) => {
       <HomeButton />
 
       <Grid
-        difficulty={difficulty}
-        hasPreviousGames={hasPreviousGames}
+        sudokuGrid={sudokuGrid}
+        setSudokuGrid={setSudokuGrid}
+        gridID={gridID}
+        solve={solve}
         setHasPreviousGames={setHasPreviousGames}
       />
 

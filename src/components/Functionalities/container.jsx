@@ -43,20 +43,25 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
     const solvedGrid = JSON.stringify([...grid]);
 
     // and get the actual grid from user local storage
-    const playedGrid = JSON.parse(localStorage.getItem('grids'));
-    const gridToCheck = JSON.stringify(playedGrid[gridID]);
-
-    console.log(gridToCheck);
-    console.log(solvedGrid);
+    const grids = JSON.parse(localStorage.getItem('grids'));
+    const gridToCheck = JSON.stringify(grids[gridID]);
 
     // faire un composant "gagné" et faire disparaitre ce bouton si c'est gagné
-    if (gridToCheck === solvedGrid) {
+    if(gridToCheck === solvedGrid) {
       console.log('well played');
       setGameWon(true);
       setMessage('');
+    
+      if(grids.length === 1) {
+        localStorage.removeItem('grids');
+        setHasPreviousGames(false);
+      } else {
+        grids.splice(gridID, 1);
+        localStorage.setItem('grids', JSON.stringify(grids));
+      };
     } else {
       console.log('try again');
-      setMessage("🛑 La grille n'est pas correcte 🛑")
+      setMessage("🛑 La grille n'est pas correcte 🛑");
     };
   };
 

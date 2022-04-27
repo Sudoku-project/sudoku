@@ -6,7 +6,7 @@ import './style.scss';
 import arrow from '../../media/icons/arrow.svg';
 import save from '../../media/icons/save.svg';
 
-const MenuView = ({ hasPreviousGames }) => {
+const MenuView = ({ newGame, hasPreviousGames }) => {
 
   return (
     <nav className='menu'>
@@ -14,6 +14,9 @@ const MenuView = ({ hasPreviousGames }) => {
       <NavLink
         className='menu--link start'
         to='/game'
+        onClick={() => {
+          newGame();
+        }}
       >
         <div className='menu--link--img'>
           <img
