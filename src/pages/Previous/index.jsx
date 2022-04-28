@@ -50,15 +50,27 @@ const Previous = ({ setSudokuGrid, setGridID, setHasPreviousGames }) => {
       <div className='previous_grids--container'>
 
         {previousGrids.map((game, gameIndex) => {
+          let numberOfZero = 0;
 
+          const merged = [].concat.apply([], game.grid).forEach(number => {
+            if(number === 0){
+              numberOfZero++;
+            };
+          });
+          const percent = Math.floor(numberOfZero * 100 / 81);
+ 
           let difficulty;
+          let frenchDifficulty;
 
           if(game.difficulty === 0.5) {
             difficulty = 'easy';
+            frenchDifficulty = 'Facile';
           } else if(game.difficulty === 0.4) {
             difficulty = 'medium';
+            frenchDifficulty = 'Normal';
           } else if(game.difficulty === 0.3) {
             difficulty = 'hard';
+            frenchDifficulty = 'Difficile';
           };
 
           return(
@@ -76,24 +88,33 @@ const Previous = ({ setSudokuGrid, setGridID, setHasPreviousGames }) => {
               >
                 <table className={`previous_grids--container--item--link--grid ${difficulty}`}>
                   <tbody className='previous_grids--container--item--link--grid--body'>
-                    {game.grid.map((row, rowIndex) =>
-                      <tr
-                        className='previous_grids--container--item--link--grid--body--row'
-                        key={rowIndex}
-                      >
-                        {row.map((number, columnIndex) =>
-                        
-                          <td
-                            className='previous_grids--container--item--link--grid--body--row--content'
-                            key={columnIndex}
-                          >
-                            {number === 0 ? '' : number}
-                          </td>
-                        )}
-                      </tr>
-                    )}
+                    {game.grid.map((row, rowIndex) => {
+
+                      return (
+                        <tr
+                          className='previous_grids--container--item--link--grid--body--row'
+                          key={rowIndex}
+                        >
+                          {row.map((number, columnIndex) => {
+
+                            return (
+                              <td
+                                className='previous_grids--container--item--link--grid--body--row--content'
+                                key={columnIndex}
+                              >
+                                {number === 0 ? '' : number}
+                              </td>
+                            );
+                          })}
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
+
+                <span className='previous_grids--container--item--link--span'>
+                  {frenchDifficulty} - rempli à {100 - percent}%
+                </span>
               </NavLink>
 
               <button

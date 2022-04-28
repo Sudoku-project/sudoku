@@ -5,12 +5,13 @@ import Difficulty from "../../components/Difficulty";
 
 import "./style.scss";
 
-const Home = ({ newGame, setDifficulty, hasPreviousGames }) => {
+const Home = ({ newGame, difficulty, setDifficulty, hasPreviousGames }) => {
 
   return (
     <main className="home">
 
       <Difficulty
+        difficulty={difficulty}
         setDifficulty={setDifficulty}
       />
 

@@ -83,9 +83,23 @@
             }
           }
         }
+
+        &--span {
+          position: absolute;
+          opacity: 0;
+          background: vars.$dark-grey;
+          color: vars.$white;
+          padding: 5px 10px;
+          border-radius: 5px;
+          transition: 0.1s;
+        }
       }
 
       &:hover {
+        .previous_grids--container--item--link--span {
+          opacity: 1;
+        }
+
         .previous_grids--container--item--button {
           transform: translateY(130px);
           opacity: 1;

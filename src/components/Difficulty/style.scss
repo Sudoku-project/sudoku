@@ -6,33 +6,12 @@
   overflow: hidden;
   border-radius: 15px;
 
-  &--input {
-    display: none;
-
-    &:checked {
-      &.easy + .difficulty--label {
-        background: vars.$green;
-      }
-
-      &.medium + .difficulty--label {
-        background: vars.$yellow;
-      }
-
-      &.hard + .difficulty--label {
-        background: vars.$red;
-      }
-    }
-  }
-
-  &--label {
-    display: inline;
-    cursor: pointer;
-    padding: 14px 20px;
-    font-size: 14px;
-    color: vars.$white;
+  &--button {
     background: vars.$main-color;
+    padding: 14px 20px;
+    color: vars.$white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-    transition: .1s;
+    transition: transform 0.1s;
 
     &:hover {
       background: vars.$main-hover;
@@ -41,9 +20,19 @@
     &:active {
       transform: scale(0.95);
     }
+    
+    &.selected {
+      &.easy {
+        background: vars.$green;
+      }
 
-    &:not(:last-of-type) {
-      border-right: 1px solid vars.$white;
+      &.medium {
+        background: vars.$yellow;
+      }
+
+      &.hard {
+        background: vars.$red;
+      }
     }
   }
 }

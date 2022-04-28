@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from './pages/Home';
@@ -10,18 +10,10 @@ import './styles/index.scss';
 
 const App = () => {
 
-  const [difficulty, setDifficulty] = useState(0.4);
-  const [hasPreviousGames, setHasPreviousGames] = useState(false);
+  const [difficulty, setDifficulty] = useState(null);
+  const [hasPreviousGames, setHasPreviousGames] = useState(localStorage.getItem('grids') ? true : false);
   const [sudokuGrid, setSudokuGrid] = useState([]);
   const [gridID, setGridID] = useState(0);
-
-  useEffect(() => {
-    const previousGames = localStorage.getItem('grids');
-  
-    if(previousGames) {
-      setHasPreviousGames(true);
-    };
-  }, []);
 
   // We verify if a case is a valid place for a number
   const isValidPlace = (grid, row, col, number) => {
@@ -166,6 +158,7 @@ const App = () => {
           element={
             <Home
               newGame={newGame}
+              difficulty={difficulty}
               setDifficulty={setDifficulty}
               hasPreviousGames={hasPreviousGames}
             />
