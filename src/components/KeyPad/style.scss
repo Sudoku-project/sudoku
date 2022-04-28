@@ -3,7 +3,17 @@
 
 
 .keypad {
-  @include posFixed(auto, auto, 5px, 5px);
+  // @include posFixed(auto, auto, 50%, 50px);
+  // transform: translateY(50%);¨
+
+  // position: fixed;
+  // transform: translate(-50%, -50%);
+
+  // @include posFixed(auto, auto, 50px, 50px);
+
+  @include posFixed(auto, auto, 50px, 50%);
+  transform: translateX(-50%);
+
   transition: .3s;
   z-index: 2;
 
