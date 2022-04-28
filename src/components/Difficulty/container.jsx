@@ -22,15 +22,15 @@ const DifficultyContainer = ({ difficulty, setDifficulty }) => {
       setDifficulty(0.95);
 
       // save in local storage
-      localStorage.setItem('difficulty', 0.95);
+      localStorage.setItem('difficulty', 0.55);
 
     } else if(newDifficulty === 'medium') {
       setDifficulty(0.4);
-      localStorage.setItem('difficulty', 0.4);
+      localStorage.setItem('difficulty', 0.45);
 
     } else if(newDifficulty === 'hard') {
       setDifficulty(0.3);
-      localStorage.setItem('difficulty', 0.3);
+      localStorage.setItem('difficulty', 0.35);
     };
   };
 
