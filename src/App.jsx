@@ -130,6 +130,11 @@ const App = () => {
     // set this new puzzle in state
     setSudokuGrid(puzzle);
 
+    const newGrid = {
+      difficulty: difficulty,
+      grid: puzzle
+    };
+
     // if user already played grids before this game,
     if(hasPreviousGames) {
       // get them from local storage & parse them
@@ -139,11 +144,11 @@ const App = () => {
       setGridID(previousGames.length);
 
       // set the new grid in local storage with the previous
-      const games = [...previousGames, puzzle];
+      const games = [...previousGames, newGrid];
       localStorage.setItem('grids', JSON.stringify(games));
     } else {
       // If this is the first game for user, just set this grid in local storage for save it
-      const games = [puzzle];
+      const games = [newGrid];
       localStorage.setItem('grids', JSON.stringify(games));
 
       // & update state

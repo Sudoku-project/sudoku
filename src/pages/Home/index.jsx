@@ -20,7 +20,6 @@ const Home = ({ newGame, setDifficulty, hasPreviousGames }) => {
         newGame={newGame}
         hasPreviousGames={hasPreviousGames}
       />
-      
 
     </main>
   );

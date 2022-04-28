@@ -21,12 +21,12 @@ const BoxContainer = ({ row, column, setGridDone, gridID, number }) => {
 
       // Get previous grid from local storage
       const previousGrids = JSON.parse(localStorage.getItem("grids"));
-
+      
       // Copy previous grid in a the new const
       const grids = [...previousGrids];
 
       // Then change the right number in the right grid
-      grids[gridID][row][column] = newNumber;
+      grids[gridID].grid[row][column] = newNumber;
 
       // Stringify new grids
       const newGrids = JSON.stringify(grids);
@@ -35,7 +35,7 @@ const BoxContainer = ({ row, column, setGridDone, gridID, number }) => {
       localStorage.setItem("grids", newGrids);
 
       // We check if our actual grid is complete
-      const gridToCheck = JSON.stringify(grids[gridID]);
+      const gridToCheck = JSON.stringify(grids[gridID].grid);
 
       // if our grid don't contains any 0,
       if (!gridToCheck.includes(0)) {

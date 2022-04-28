@@ -15,6 +15,7 @@
 
     &--item {
       @include flexCenter;
+      transition: .2s;
       
       &--button {
         position: absolute;
@@ -47,9 +48,9 @@
         display: flex;
         align-items: center;
         margin: 50px 20px;
+        cursor: pointer;
 
         &--grid {
-          cursor: pointer;
           width: 180px;
           height: 180px;
           transition: .3s;
@@ -91,8 +92,23 @@
         }
 
         .previous_grids--container--item--link--grid {
-          box-shadow: 0 0 10px 5px vars.$orange;
+
+          &.easy {
+            box-shadow: 0 0 10px 5px vars.$green;
+          }
+
+          &.medium {
+            box-shadow: 0 0 10px 5px vars.$orange;
+          }
+
+          &.hard {
+            box-shadow: 0 0 10px 5px vars.$red;
+          }
         }
+      }
+
+      &:active {
+        transform: scale(0.95);
       }
     }
   }

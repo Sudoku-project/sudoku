@@ -17,7 +17,7 @@ const KeyPadContainer = ({ setNumberInput, row, column, gridID, setGridDone, key
     const grids = [...previousGrids]
     
     // Change the right number in the right grid, in the right row, in the right column
-    grids[gridID][row][column] = newNumber;
+    grids[gridID].grid[row][column] = newNumber;
 
     // & update the state
     // setSudokuGrid(grids[gridID]);
@@ -25,9 +25,9 @@ const KeyPadContainer = ({ setNumberInput, row, column, gridID, setGridDone, key
     // without forgetting to save updated grids in local storage
     localStorage.setItem("grids", JSON.stringify(grids));
 
-    const gridToChek = JSON.stringify(grids[gridID]);
+    const gridToCheck = JSON.stringify(grids[gridID].grid);
 
-    if(!gridToChek.includes(0)) {
+    if(!gridToCheck.includes(0)) {
       setGridDone(true);
     };
 
