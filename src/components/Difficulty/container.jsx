@@ -10,8 +10,8 @@ const DifficultyContainer = ({ difficulty, setDifficulty }) => {
     if(favoriteDifficulty) {
       setDifficulty(parseFloat(favoriteDifficulty));
     } else {
-      localStorage.setItem('difficulty', 0.4);
-      setDifficulty(0.4);
+      localStorage.setItem('difficulty', 0.45);
+      setDifficulty(0.45);
     };
   }, []);
 

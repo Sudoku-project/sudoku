@@ -52,23 +52,23 @@ const Previous = ({ setSudokuGrid, setGridID, setHasPreviousGames }) => {
         {previousGrids.map((game, gameIndex) => {
           let numberOfZero = 0;
 
-          const merged = [].concat.apply([], game.grid).forEach(number => {
+          [].concat.apply([], game.grid).forEach(number => {
             if(number === 0){
               numberOfZero++;
             };
           });
-          const percent = Math.floor(numberOfZero * 100 / 81);
+          const percent = 100 - (Math.floor(numberOfZero * 100 / 81));
  
           let difficulty;
           let frenchDifficulty;
 
-          if(game.difficulty === 0.5) {
+          if(game.difficulty === 0.55) {
             difficulty = 'easy';
             frenchDifficulty = 'Facile';
-          } else if(game.difficulty === 0.4) {
+          } else if(game.difficulty === 0.45) {
             difficulty = 'medium';
             frenchDifficulty = 'Normal';
-          } else if(game.difficulty === 0.3) {
+          } else if(game.difficulty === 0.35) {
             difficulty = 'hard';
             frenchDifficulty = 'Difficile';
           };
@@ -113,7 +113,7 @@ const Previous = ({ setSudokuGrid, setGridID, setHasPreviousGames }) => {
                 </table>
 
                 <span className='previous_grids--container--item--link--span'>
-                  {frenchDifficulty} - rempli à {100 - percent}%
+                  {frenchDifficulty} - rempli à {percent}%
                 </span>
               </NavLink>
 
