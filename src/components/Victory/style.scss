@@ -1,0 +1,6 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+.victory {
+  @include flexCenter;
+}

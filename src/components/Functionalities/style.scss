@@ -4,14 +4,13 @@
 .functionalities {
   @include flexCenter;
   flex-direction: column;
-  width: 100%;
   z-index: 1;
-  height: 3em;
+  height: 10vh;
 
   &--message {
     color: vars.$red;
     font-weight: bold;
-    margin: 30px 0 40px;
+    margin: 40px 0;
     height: 1em;
   }
 

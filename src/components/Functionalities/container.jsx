@@ -55,7 +55,10 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
 
     // and get the actual grid from user local storage
     const grids = JSON.parse(localStorage.getItem('grids'));
-    const gridToCheck = JSON.stringify(grids[gridID]);
+    const gridToCheck = JSON.stringify(grids[gridID].grid);
+
+    console.log(solvedGrid);
+    console.log(gridToCheck);
 
     // faire un composant "gagné" et faire disparaitre ce bouton si c'est gagné
     if(gridToCheck === solvedGrid) {

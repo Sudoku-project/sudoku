@@ -88,32 +88,29 @@ const Previous = ({ setSudokuGrid, setGridID, setHasPreviousGames }) => {
               >
                 <table className={`previous_grids--container--item--link--grid ${difficulty}`}>
                   <tbody className='previous_grids--container--item--link--grid--body'>
-                    {game.grid.map((row, rowIndex) => {
+                    {game.grid.map((row, rowIndex) =>
+                      <tr
+                        className='previous_grids--container--item--link--grid--body--row'
+                        key={rowIndex}
+                      >
+                        {row.map((number, columnIndex) => {
 
-                      return (
-                        <tr
-                          className='previous_grids--container--item--link--grid--body--row'
-                          key={rowIndex}
-                        >
-                          {row.map((number, columnIndex) => {
-
-                            return (
-                              <td
-                                className='previous_grids--container--item--link--grid--body--row--content'
-                                key={columnIndex}
-                              >
-                                {number === 0 ? '' : number}
-                              </td>
-                            );
-                          })}
-                        </tr>
-                      );
-                    })}
+                          return (
+                            <td
+                              className='previous_grids--container--item--link--grid--body--row--content'
+                              key={columnIndex}
+                            >
+                              {number === 0 ? '' : number}
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    )}
                   </tbody>
                 </table>
 
                 <span className='previous_grids--container--item--link--span'>
-                  {frenchDifficulty} - rempli à {percent}%
+                  {frenchDifficulty} - remplie à {percent}%
                 </span>
               </NavLink>
 
