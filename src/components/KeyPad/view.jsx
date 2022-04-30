@@ -12,8 +12,11 @@ const KeyPadView = ({ handleChangeNumber, keyPadRef }) => {
       className="keypad"
     >
       <ul className="keypad--numbers">
-        {numbers.map((number, index) => (
-          <li className="keypad--numbers--item" key={index}>
+        {numbers.map((number, index) =>
+          <li
+            className="keypad--numbers--item"
+            key={index}
+          >
             <button
               className="keypad--numbers--item--button"
               onClick={() => {
@@ -23,7 +26,7 @@ const KeyPadView = ({ handleChangeNumber, keyPadRef }) => {
               {number}
             </button>
           </li>
-        ))}
+        )}
       </ul>
     </section>
   );

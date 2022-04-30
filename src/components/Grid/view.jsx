@@ -17,15 +17,6 @@ const GridView = ({
 
   return (
     <>
-      <Functionalities
-        grid={grid}
-        solve={solve}
-        setSudokuGrid={setSudokuGrid}
-        gridDone={gridDone}
-        gridID={gridID}
-        setHasPreviousGames={setHasPreviousGames}
-      />
-
       <table className="grid">
         <tbody className="grid--body">
           {grid.map((row, rowIndex) => {
@@ -38,12 +29,12 @@ const GridView = ({
                 {row.map((number, columnIndex) => {
                   return (
                     <td
+                      key={columnIndex}
                       className={
                         number === 0
                           ? "grid--body--row--content empty"
                           : "grid--body--row--content full"
                       }
-                      key={columnIndex}
                     >
                       {number === 0 ? (
                         <Box
@@ -64,6 +55,15 @@ const GridView = ({
           })}
         </tbody>
       </table>
+
+      <Functionalities
+        grid={grid}
+        solve={solve}
+        setSudokuGrid={setSudokuGrid}
+        gridDone={gridDone}
+        gridID={gridID}
+        setHasPreviousGames={setHasPreviousGames}
+      />
     </>
   );
 };

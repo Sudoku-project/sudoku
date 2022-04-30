@@ -7,8 +7,9 @@
   cursor: pointer;
   background: transparent;
   text-align: center;
-  font-size: 2.5vh;
+  font-size: 2vh;
   color: vars.$main-color;
+  font-family: inherit;
 
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
