@@ -5,6 +5,16 @@
   @include flexCenter;
 
   &--content {
-    color: vars.$black;
+    font-weight: bold;
+    padding: 20px 40px;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .victory {
+
+    &--content {
+      padding: 50px 100px;
+    }
   }
 }

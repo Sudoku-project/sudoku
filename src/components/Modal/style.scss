@@ -61,9 +61,14 @@
 
       &--close {
         border-radius: 50%;
+        transition: transform 0.2s;
         
         &:hover {
           background: vars.$light-grey;
+        }
+
+        &:active {
+          transform: scale(0.95);
         }
       }
     }

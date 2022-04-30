@@ -16,43 +16,51 @@
     &--item {
       @include flexCenter;
       transition: .2s;
-      
-      &--button {
-        position: absolute;
-        background: vars.$main-color;
-        border-radius: 50%;
-        padding: 10px;
-        transition: .3s;
-        transform: translateY(50px);
-        opacity: 0;
-
-        &--img {
-          width: 20px;
-          height: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          &--icon {
-            height: 100%;
-            width: 100%;
-          }
-        }
-
-        &:hover {
-          background: vars.$main-hover;
-        }
-      }
 
       &--link {
         @include flexCenter;
         cursor: pointer;
         margin: 10px 0;
+      
+        &--button {
+          position: absolute;
+          background: vars.$main-color;
+          border-radius: 50%;
+          padding: 10px;
+          transition: .3s;
+          transform: translateY(50px);
+          opacity: 0;
+  
+          &--img {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+  
+            &--icon {
+              height: 100%;
+              width: 100%;
+            }
+          }
+        }
 
         &--grid {
           width: 180px;
           height: 180px;
           transition: .3s;
+
+          &.easy {
+            box-shadow: 0 0 10px 5px vars.$green;
+          }
+
+          &.medium {
+            box-shadow: 0 0 10px 5px vars.$orange;
+          }
+
+          &.hard {
+            box-shadow: 0 0 10px 5px vars.$red;
+          }
 
           &--body {
             border: 3px solid vars.$black;
@@ -105,20 +113,43 @@
 
 @media screen and (min-width: 850px) {
   .previous_grids {
+
     &--container {
       padding: 10vh;
 
       &--item {
+
         &--link {
           margin: 50px 20px;
+
+          &--button {
+
+            &:hover {
+              background: vars.$main-hover;
+            }
+          }
+
+          &--grid {
+            &.easy {
+              box-shadow: none;
+            }
+
+            &.medium {
+              box-shadow: none;
+            }
+
+            &.hard {
+              box-shadow: none;
+            }
+          }
 
           &:hover {
             .previous_grids--container--item--link--span {
               opacity: 1;
             }
 
-            .previous_grids--container--item--button {
-              transform: translateY(130px);
+            .previous_grids--container--item--link--button {
+              transform: translateY(120px);
               opacity: 1;
             }
 
