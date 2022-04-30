@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import IconButton from '../IconButton';
+
 import './style.scss';
 
 import arrow from '../../media/icons/arrow.svg';
@@ -18,13 +20,10 @@ const MenuView = ({ newGame, hasPreviousGames }) => {
           newGame();
         }}
       >
-        <div className='menu--link--img'>
-          <img
-            src={arrow}
-            alt='Lancer la partie'
-            className='menu--link--img--icon'
-          />
-        </div>
+        <IconButton
+          image={arrow}
+          alt='Lancer la partie'
+        />
         Lancer la partie
       </NavLink>
 
@@ -34,13 +33,10 @@ const MenuView = ({ newGame, hasPreviousGames }) => {
           className='menu--link previous'
           to='/list'
         >
-          <div className='menu--link--img'>
-            <img
-              src={save}
-              alt='Parties sauvegardées'
-              className='menu--link--img--icon'
-            />
-          </div>
+          <IconButton
+            image={save}
+            alt='Parties sauvegardées'
+          />
           Grilles sauvegardées
         </NavLink>
       )}

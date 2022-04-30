@@ -9,6 +9,7 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
   const [message, setMessage] = useState('');
   const [showGiveUpButton, setShowGiveUpButton] = useState(true);
   const [showVerifyButton, setShowVerifyButton] = useState(false);
+  const [showVictory, setShowVictory] = useState(false);
 
   useEffect(() => {
     if(gridDone === true) {
@@ -71,6 +72,7 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
 
       setShowGiveUpButton(false);
       setShowVerifyButton(false);
+      setShowVictory(true);
     
       if(grids.length === 1) {
         localStorage.removeItem('grids');
@@ -79,6 +81,8 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
         grids.splice(gridID, 1);
         localStorage.setItem('grids', JSON.stringify(grids));
       };
+
+
     } else {
 
 
@@ -100,6 +104,8 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
       message={message}
       showGiveUpButton={showGiveUpButton}
       showVerifyButton={showVerifyButton}
+      showVictory={showVictory}
+      setShowVictory={setShowVictory}
     />
   );
 };

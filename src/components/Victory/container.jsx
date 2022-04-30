@@ -1,10 +1,13 @@
 import React from 'react';
+
 import VictoryView from './view';
 
-const VictoryContainer = () => {
-
+const VictoryContainer = ({ setShowVictory }) => {
+  
   return (
-    <VictoryView />
+    <VictoryView
+      setShowVictory={setShowVictory}
+    />
   );
 };
 

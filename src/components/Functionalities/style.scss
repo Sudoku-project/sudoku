@@ -11,7 +11,6 @@
     color: vars.$red;
     font-weight: bold;
     margin: 40px 0;
-    height: 1em;
   }
 
   &--buttons {
@@ -21,11 +20,6 @@
       @include buttonStyle;
       font-size: 1.5vh;
       margin: 0 1em;
-
-      &--img {
-        @include imgStyle;
-        margin-right: 0.5em;
-      }
 
       &--solve {
         background: vars.$red;

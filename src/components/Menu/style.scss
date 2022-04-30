@@ -25,10 +25,5 @@
         background: vars.$orange-hover;
       }
     }
-
-    &--img {
-      @include imgStyle;
-      margin-right: 0.5rem;
-    }
   }
 }

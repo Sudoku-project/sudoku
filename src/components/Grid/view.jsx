@@ -17,6 +17,15 @@ const GridView = ({
 
   return (
     <>
+      <Functionalities
+        grid={grid}
+        solve={solve}
+        setSudokuGrid={setSudokuGrid}
+        gridDone={gridDone}
+        gridID={gridID}
+        setHasPreviousGames={setHasPreviousGames}
+      />
+
       <table className="grid">
         <tbody className="grid--body">
           {grid.map((row, rowIndex) => {
@@ -55,15 +64,6 @@ const GridView = ({
           })}
         </tbody>
       </table>
-
-      <Functionalities
-        grid={grid}
-        solve={solve}
-        setSudokuGrid={setSudokuGrid}
-        gridDone={gridDone}
-        gridID={gridID}
-        setHasPreviousGames={setHasPreviousGames}
-      />
     </>
   );
 };

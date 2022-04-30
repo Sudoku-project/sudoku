@@ -1,18 +1,25 @@
 import React from 'react';
 
+import Victory from '../Victory';
+import IconButton from '../IconButton';
+
 import './style.scss';
 
 import cross from '../../media/icons/cross.svg';
 import loop from '../../media/icons/loop.svg';
 
-const FunctionalitiesView = ({ handleGiveup, handleVerifyGrid, message, showGiveUpButton, showVerifyButton }) => {
+const FunctionalitiesView = ({ 
+  handleGiveup,
+  handleVerifyGrid,
+  message,
+  showGiveUpButton,
+  showVerifyButton,
+  showVictory,
+  setShowVictory
+}) => {
 
   return (
     <section className='functionalities'>
-
-      <span className='functionalities--message'>
-        {message}
-      </span>
 
       <div className='functionalities--buttons'>
         {showGiveUpButton && (
@@ -22,13 +29,10 @@ const FunctionalitiesView = ({ handleGiveup, handleVerifyGrid, message, showGive
               handleGiveup();
             }}
           >
-            <div className='functionalities--buttons--button--img'>
-              <img
-                src={cross}
-                alt="Abandonner"
-                className='functionalities--buttons--button--img--icon'
-              />
-            </div>
+            <IconButton
+              image={cross}
+              alt='Abandonner la partie'
+            />
             Solution
           </button>
         )}
@@ -39,17 +43,24 @@ const FunctionalitiesView = ({ handleGiveup, handleVerifyGrid, message, showGive
               handleVerifyGrid();
             }}
           >
-            <div className='functionalities--buttons--button--img'>
-              <img
-                src={loop}
-                alt="Vérifier ma grille"
-                className='functionalities--buttons--button--img--icon'
-              />
-            </div>
+            <IconButton
+              image={loop}
+              alt='Vérifier ma grille'
+            />
             Vérifier
           </button>
         )}
       </div>
+
+      <span className='functionalities--message'>
+        {message}
+      </span>
+
+      {showVictory && (
+        <Victory
+          setShowVictory={setShowVictory}
+        />
+      )}
     </section>
   );
 };

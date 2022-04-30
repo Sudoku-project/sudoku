@@ -8,10 +8,12 @@ const DifficultyContainer = ({ difficulty, setDifficulty }) => {
     const favoriteDifficulty = localStorage.getItem('difficulty');
 
     if(favoriteDifficulty) {
-      setDifficulty(parseFloat(favoriteDifficulty));
+      // setDifficulty(parseFloat(favoriteDifficulty));
+      setDifficulty(0.95);
     } else {
       localStorage.setItem('difficulty', 0.45);
-      setDifficulty(0.45);
+      setDifficulty(0.95);
+      // setDifficulty(0.45);
     };
   }, []);
 
@@ -19,7 +21,8 @@ const DifficultyContainer = ({ difficulty, setDifficulty }) => {
 
     if(newDifficulty === 'easy') {
       // set state
-      setDifficulty(0.55);
+      // setDifficulty(0.55);
+      setDifficulty(0.95);
 
       // save in local storage
       localStorage.setItem('difficulty', 0.55);

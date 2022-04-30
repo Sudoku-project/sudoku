@@ -3,4 +3,8 @@
 
 .victory {
   @include flexCenter;
+
+  &--content {
+    color: vars.$white;
+  }
 }

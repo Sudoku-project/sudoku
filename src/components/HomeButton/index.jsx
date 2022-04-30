@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import './style.scss';
 
 import home from '../../media/icons/home.svg';
+import IconButton from '../IconButton';
 
 const HomeButton = () => {
 
@@ -12,13 +13,10 @@ const HomeButton = () => {
       className='home__button'
       to='/'
     >
-      <div className='home__button--img'>
-        <img
-          src={home}
-          alt="Revenir à l'accueil"
-          className='home__button--img--icon'
-        />
-      </div>
+      <IconButton
+        image={home}
+        alt="Retourner à l'accueil"
+      />
       Accueil
     </NavLink>
   );
