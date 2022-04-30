@@ -21,6 +21,10 @@ const FunctionalitiesView = ({
   return (
     <section className='functionalities'>
 
+      <span className='functionalities--message'>
+        {message}
+      </span>
+
       <div className='functionalities--buttons'>
         {showGiveUpButton && (
           <button
@@ -33,7 +37,9 @@ const FunctionalitiesView = ({
               image={cross}
               alt='Abandonner la partie'
             />
-            Solution
+            <span className='functionalities--buttons--button--label'>
+              Solution
+            </span>
           </button>
         )}
         {showVerifyButton && (
@@ -47,14 +53,12 @@ const FunctionalitiesView = ({
               image={loop}
               alt='Vérifier ma grille'
             />
-            Vérifier
+            <span className='functionalities--buttons--button--label'>
+              Vérifier
+            </span>
           </button>
         )}
       </div>
-
-      <span className='functionalities--message'>
-        {message}
-      </span>
 
       {showVictory && (
         <Victory

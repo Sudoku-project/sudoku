@@ -6,6 +6,7 @@
   flex-direction: column;
   z-index: 1;
   height: 10vh;
+  margin: 100px 0;
 
   &--message {
     color: vars.$red;
@@ -15,11 +16,12 @@
 
   &--buttons {
     @include flexCenter;
+    flex-direction: column;
 
     &--button {
       @include buttonStyle;
       font-size: 1.5vh;
-      margin: 0 1em;
+      margin: 1em 0;
 
       &--solve {
         background: vars.$red;
@@ -47,6 +49,22 @@
 
       &:active {
         transform: scale(0.95);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .functionalities {
+    &--message {
+      margin: 0 0 80px;
+    }
+
+    &--buttons {
+      flex-direction: row;
+
+      &--button {
+        margin: 0 1em;
       }
     }
   }

@@ -17,7 +17,9 @@ const HomeButton = () => {
         image={home}
         alt="Retourner à l'accueil"
       />
-      Accueil
+      <span className='home__button--label'>
+        Accueil
+      </span>
     </NavLink>
   );
 };

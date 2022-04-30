@@ -12,7 +12,7 @@ const BoxContainer = ({ row, column, setGridDone, gridID, number }) => {
 
   const handleKeyDown = (event) => {
 
-    if(event.key === 'Delete' || event.key === 'Backspace') {
+    if(event.key === 'Delete' || event.key === 'Backspace' || event.key === '0') {
       setNumberInput(0);
 
       // Get previous grid from local storage
@@ -31,7 +31,7 @@ const BoxContainer = ({ row, column, setGridDone, gridID, number }) => {
       localStorage.setItem("grids", newGrids);
 
       setGridDone(false);
-      
+
     } else {
       // Transform string into integer
       const newNumber = parseInt(event.key, 10);

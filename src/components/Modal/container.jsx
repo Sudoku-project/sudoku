@@ -16,7 +16,7 @@ const ModalContainer = (props) => {
 
   return (
     <ModalView
-      props={props}
+      children={props.children}
       modalRef={modalRef}
       closeModal={closeModal}
     />

@@ -1,12 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 import Modal from '../Modal';
-import IconButton from '../IconButton';
+import HomeButton from '../HomeButton';
 
 import './style.scss';
-
-import home from '../../media/icons/home.svg';
 
 const VictoryView = ({ setShowVictory }) => {
 
@@ -18,18 +15,8 @@ const VictoryView = ({ setShowVictory }) => {
         <p className='victory--content'>
           Vous avez gagné !
         </p>
-
-        <NavLink
-          to='/'
-          className='victory--link'
-        >
-          <IconButton
-            image={home}
-            alt={"Retourner à la page d'accueil"}
-          />
-          
-          Accueil
-        </NavLink>
+        
+        <HomeButton />
       </Modal>
     </section>
   );

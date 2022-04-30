@@ -2,17 +2,17 @@ import React from 'react';
 
 import './style.scss';
 
-const ModalView = (props) => {
+const ModalView = ({ children, modalRef, closeModal }) => {
   
   return (
     <section
       className='modal'
-      ref={props.modalRef}
+      ref={modalRef}
     >
       <div 
         className='behind'
         onClick={() => {
-          props.closeModal();
+          closeModal();
         }}
       ></div>
       
@@ -21,7 +21,7 @@ const ModalView = (props) => {
         <button
           className='modal--container--close'
           onClick={() => {
-            props.closeModal();
+            closeModal();
           }}
         >
 
@@ -35,7 +35,7 @@ const ModalView = (props) => {
 
         </button>
 
-        {props.children}
+        {children}
 
       </div>
     </section>
