@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { LanguageContext } from '../../context/LanguageContext';
 
 import './style.scss';
 
@@ -8,6 +9,8 @@ import IconButton from '../IconButton';
 
 const HomeButton = () => {
 
+  const { lang } = useContext(LanguageContext);
+
   return (
     <NavLink
       className='home__button'
@@ -15,10 +18,12 @@ const HomeButton = () => {
     >
       <IconButton
         image={home}
-        alt="Retourner à l'accueil"
+        alt={lang === 'en' ? "Go back to home page" : "Retourner à l'accueil"}
       />
       <span className='home__button--label'>
-        Accueil
+
+         {lang === 'en' ? "Home" : "Accueil"}
+
       </span>
     </NavLink>
   );

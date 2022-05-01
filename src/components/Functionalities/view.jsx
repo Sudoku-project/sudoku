@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Victory from '../Victory';
 import IconButton from '../IconButton';
 
@@ -15,7 +14,8 @@ const FunctionalitiesView = ({
   showGiveUpButton,
   showVerifyButton,
   showVictory,
-  setShowVictory
+  setShowVictory,
+  lang
 }) => {
 
   return (
@@ -35,7 +35,7 @@ const FunctionalitiesView = ({
           >
             <IconButton
               image={cross}
-              alt='Abandonner la partie'
+              alt={lang === 'en' ? "Give up" : "Abandonner la partie"}
             />
             <span className='functionalities--buttons--button--label'>
               Solution
@@ -51,10 +51,10 @@ const FunctionalitiesView = ({
           >
             <IconButton
               image={loop}
-              alt='Vérifier ma grille'
+              alt={lang === 'en' ? "Verify grid" : "Vérifier ma grille"}
             />
             <span className='functionalities--buttons--button--label'>
-              Vérifier
+              {lang === 'en' ? "Verify" : "Vérifier"}
             </span>
           </button>
         )}

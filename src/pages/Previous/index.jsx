@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { LanguageContext } from '../../context/LanguageContext';
 
 import HomeButton from '../../components/HomeButton';
 
@@ -8,6 +9,8 @@ import trash from '../../media/icons/trash.svg';
 import './style.scss';
 
 const Previous = ({ setSudokuGrid, setGridID, setHasPreviousGames }) => {
+
+  const { lang } = useContext(LanguageContext);
 
   const [previousGrids, setPreviousGrids] = useState([]);
 
@@ -57,20 +60,21 @@ const Previous = ({ setSudokuGrid, setGridID, setHasPreviousGames }) => {
               numberOfZero++;
             };
           });
+          
           const percent = 100 - (Math.floor(numberOfZero * 100 / 81));
  
           let difficulty;
           let frenchDifficulty;
 
           if(game.difficulty === 0.55) {
-            difficulty = 'easy';
-            frenchDifficulty = 'Facile';
+            difficulty = 'Easy ';
+            frenchDifficulty = 'Facile ';
           } else if(game.difficulty === 0.45) {
-            difficulty = 'medium';
-            frenchDifficulty = 'Normal';
+            difficulty = 'Medium ';
+            frenchDifficulty = 'Normal ';
           } else if(game.difficulty === 0.35) {
-            difficulty = 'hard';
-            frenchDifficulty = 'Difficile';
+            difficulty = 'Hard ';
+            frenchDifficulty = 'Difficile ';
           };
 
           return(
@@ -110,7 +114,9 @@ const Previous = ({ setSudokuGrid, setGridID, setHasPreviousGames }) => {
                 </table>
 
                 <span className='previous_grids--container--item--link--span'>
-                  {frenchDifficulty} - remplie à {percent}%
+                  {lang === 'en' ? difficulty : frenchDifficulty}
+                    - 
+                  {lang === 'en' ? " filled to" : " remplie à"} {percent}%
                 </span>
 
                 <button
@@ -122,7 +128,7 @@ const Previous = ({ setSudokuGrid, setGridID, setHasPreviousGames }) => {
                   <div className='previous_grids--container--item--link--button--img'>
                     <img
                       className='previous_grids--container--item--link--button--img--icon'
-                      alt='Supprimer cette grille'
+                      alt={lang === 'en' ? "Delete this game" : "Supprimer cette partie"}
                       src={trash}
                     />
                   </div>

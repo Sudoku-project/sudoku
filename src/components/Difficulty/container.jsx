@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import DifficultyView from './view.jsx';
 
-
 const DifficultyContainer = ({ difficulty, setDifficulty }) => {
 
   useEffect(() => {

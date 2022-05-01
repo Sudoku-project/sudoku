@@ -166,6 +166,7 @@ button {
 
 input {
   border: none;
+  font-family: inherit;
 }
 
 li {

@@ -1,0 +1,6 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+.lang {
+  @include posFixed(5px, 5px, auto, auto);
+}

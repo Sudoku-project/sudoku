@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from '../../context/LanguageContext';
 
 import './style.scss';
 
 const DifficultyView = ({ handleChangeDifficulty, difficulty }) => {
+
+  const { lang } = useContext(LanguageContext);
 
   return (
     <section className='difficulty'>
@@ -13,7 +16,7 @@ const DifficultyView = ({ handleChangeDifficulty, difficulty }) => {
           handleChangeDifficulty('easy');
         }}
       >
-        Facile
+        {lang === 'en' ? "Easy" : "Facile"}
       </button>
 
       <button
@@ -22,7 +25,7 @@ const DifficultyView = ({ handleChangeDifficulty, difficulty }) => {
           handleChangeDifficulty('medium');
         }}
       >
-        Normal
+        {lang === 'en' ? "Medium" : "Normal"}
       </button>
       <button
         className={difficulty === 0.35 ? 'difficulty--button hard selected' : 'difficulty--button hard'}
@@ -30,7 +33,7 @@ const DifficultyView = ({ handleChangeDifficulty, difficulty }) => {
           handleChangeDifficulty('hard');
         }}
       >
-        Difficile
+        {lang === 'en' ? "Hard" : "Difficile"}
       </button>
       
     </section>

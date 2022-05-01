@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { LanguageContext } from '../../context/LanguageContext';
 
 import IconButton from '../IconButton';
 
@@ -9,6 +10,8 @@ import arrow from '../../media/icons/arrow.svg';
 import save from '../../media/icons/save.svg';
 
 const MenuView = ({ newGame, hasPreviousGames }) => {
+
+  const { lang } = useContext(LanguageContext);
 
   return (
     <nav className='menu'>
@@ -22,9 +25,9 @@ const MenuView = ({ newGame, hasPreviousGames }) => {
       >
         <IconButton
           image={arrow}
-          alt='Lancer la partie'
+          alt={lang === 'en' ? "Play game" : "Lancer la partie"}
         />
-        Lancer la partie
+        {lang === 'en' ? "Play" : "Lancer la partie"}
       </NavLink>
 
       {hasPreviousGames && (
@@ -35,9 +38,9 @@ const MenuView = ({ newGame, hasPreviousGames }) => {
         >
           <IconButton
             image={save}
-            alt='Parties sauvegardées'
+            alt={lang === 'en' ? "Saved games" : "Parties sauvegardées"}
           />
-          Grilles sauvegardées
+          {lang === 'en' ? "Saved grids" : "Grilles sauvegardées"}
         </NavLink>
       )}
     </nav>

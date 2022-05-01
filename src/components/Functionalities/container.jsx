@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+
+import { LanguageContext } from '../../context/LanguageContext';
 
 import FunctionalitiesView from './view';
 
 import './style.scss';
 
 const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID, setHasPreviousGames }) => {
+
+  const { lang } = useContext(LanguageContext);
 
   const [message, setMessage] = useState('');
   const [showGiveUpButton, setShowGiveUpButton] = useState(true);
@@ -73,7 +77,11 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
         localStorage.setItem('grids', JSON.stringify(grids));
       };
     } else {
-      setMessage("🛑 La grille n'est pas correcte 🛑");
+      if(lang === 'fr') {
+        setMessage("🛑 La grille n'est pas correcte 🛑");
+      } else {
+        setMessage("🛑 Grid is not correct 🛑");
+      };
     };
   };
 
@@ -86,6 +94,7 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
       showVerifyButton={showVerifyButton}
       showVictory={showVictory}
       setShowVictory={setShowVictory}
+      lang={lang}
     />
   );
 };

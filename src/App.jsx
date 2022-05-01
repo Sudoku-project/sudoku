@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import DarkModeContextProvider from './context/DarkModeContext';
-import LangageContextProvider from './context/LangageContext';
+import LanguageContextProvider from './context/LanguageContext';
 
 import Home from './pages/Home';
 import Game from './pages/Game';
 import Previous from './pages/Previous';
 import NotFound from './pages/NotFound';
+
+import Language from './components/Language';
 
 import './styles/index.scss';
 
@@ -154,7 +156,10 @@ const App = () => {
   return (
     <BrowserRouter>
       <DarkModeContextProvider>
-        <LangageContextProvider>
+        <LanguageContextProvider>
+
+          <Language />
+
           <Routes>
 
             <Route
@@ -202,7 +207,7 @@ const App = () => {
             <Route path="/*" element={ <NotFound /> } />
 
           </Routes>
-        </LangageContextProvider>
+        </LanguageContextProvider>
       </DarkModeContextProvider>
     </BrowserRouter>
   );
