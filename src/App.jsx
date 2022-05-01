@@ -10,6 +10,7 @@ import Previous from './pages/Previous';
 import NotFound from './pages/NotFound';
 
 import Language from './components/Language';
+import DarkMode from './components/DarkMode';
 
 import './styles/index.scss';
 
@@ -159,6 +160,7 @@ const App = () => {
         <LanguageContextProvider>
 
           <Language />
+          <DarkMode />
 
           <Routes>
 

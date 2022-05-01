@@ -1,14 +1,17 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-export const DarkMode = createContext();
+export const DarkModeContext = createContext();
 
-const DarkModeProvider = (props) => {
+const DarkModeContextProvider = (props) => {
 
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     // The favorite theme is saved in local storage
     const previousTheme = localStorage.getItem('dark_mode');
+
+    console.log(navigator);
+
 
     // Update the state in terms of previous theme
     if (previousTheme) {
@@ -36,10 +39,10 @@ const DarkModeProvider = (props) => {
   };
 
   return (
-    <DarkMode.Provider value={{darkMode, toggleTheme}}>
+    <DarkModeContext.Provider value={{darkMode, toggleTheme}}>
       {props.children}
-    </DarkMode.Provider>
+    </DarkModeContext.Provider>
   );
 };
 
-export default DarkModeProvider;
+export default DarkModeContextProvider;
