@@ -118,22 +118,22 @@ const Previous = ({ setSudokuGrid, setGridID, setHasPreviousGames }) => {
                     - 
                   {lang === 'en' ? " filled to" : " remplie à"} {percent}%
                 </span>
-
-                <button
-                  className='previous_grids--container--item--link--button'
-                  onClick={() => {
-                    deleteGame(gameIndex);
-                  }}
-                >
-                  <div className='previous_grids--container--item--link--button--img'>
-                    <img
-                      className='previous_grids--container--item--link--button--img--icon'
-                      alt={lang === 'en' ? "Delete this game" : "Supprimer cette partie"}
-                      src={trash}
-                    />
-                  </div>
-                </button>
               </NavLink>
+
+              <button
+                className='previous_grids--container--item--button'
+                onClick={() => {
+                  deleteGame(gameIndex);
+                }}
+              >
+                <div className='previous_grids--container--item--button--img'>
+                  <img
+                    className='previous_grids--container--item--button--img--icon'
+                    alt={lang === 'en' ? "Delete this game" : "Supprimer cette partie"}
+                    src={trash}
+                  />
+                </div>
+              </button>
             </div>
           );
         })}

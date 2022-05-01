@@ -16,40 +16,40 @@
     &--item {
       @include flexCenter;
       transition: .2s;
+      
+      &--button {
+        position: absolute;
+        background: vars.$main-color;
+        border-radius: 50%;
+        padding: 10px;
+        transition: .3s;
+        transform: translateY(50px);
+        opacity: 0;
+
+        &--img {
+          @include imgStyle;
+        }
+      }
 
       &--link {
         @include flexCenter;
         cursor: pointer;
         margin: 20px 0;
-      
-        &--button {
-          position: absolute;
-          background: vars.$main-color;
-          border-radius: 50%;
-          padding: 10px;
-          transition: .3s;
-          transform: translateY(50px);
-          opacity: 0;
-  
-          &--img {
-            @include imgStyle;
-          }
-        }
 
         &--grid {
           width: 180px;
           height: 180px;
           transition: .3s;
 
-          &.easy {
+          &.Easy {
             box-shadow: 0 0 8px 4px vars.$green;
           }
 
-          &.medium {
+          &.Medium {
             box-shadow: 0 0 8px 4px vars.$orange;
           }
 
-          &.hard {
+          &.Hard {
             box-shadow: 0 0 8px 4px vars.$red;
           }
 
@@ -91,7 +91,7 @@
           width: 180px;
           font-size: 0.9em;
           text-align: center;
-          transition: 0.1s;
+          transition: 0.3s;
         }
       }
 
@@ -115,50 +115,50 @@
         &--link {
           margin: 50px 20px;
 
-          &--button {
-
-            &:hover {
-              background: vars.$main-hover;
-            }
-          }
-
           &--grid {
-            &.easy {
+            &.Easy {
               box-shadow: none;
             }
 
-            &.medium {
+            &.Medium {
               box-shadow: none;
             }
 
-            &.hard {
+            &.Hard {
               box-shadow: none;
             }
           }
+        }
+
+        &--button {
 
           &:hover {
-            .previous_grids--container--item--link--span {
-              opacity: 1;
+            background: vars.$main-hover;
+          }
+        }
+
+        &:hover {
+          .previous_grids--container--item--link--span {
+            opacity: 1;
+          }
+
+          .previous_grids--container--item--button {
+            transform: translateY(120px);
+            opacity: 1;
+          }
+
+          .previous_grids--container--item--link--grid {
+
+            &.Easy {
+              box-shadow: 0 0 10px 5px vars.$green;
             }
 
-            .previous_grids--container--item--link--button {
-              transform: translateY(120px);
-              opacity: 1;
+            &.Medium {
+              box-shadow: 0 0 10px 5px vars.$orange;
             }
 
-            .previous_grids--container--item--link--grid {
-
-              &.easy {
-                box-shadow: 0 0 10px 5px vars.$green;
-              }
-
-              &.medium {
-                box-shadow: 0 0 10px 5px vars.$orange;
-              }
-
-              &.hard {
-                box-shadow: 0 0 10px 5px vars.$red;
-              }
+            &.Hard {
+              box-shadow: 0 0 10px 5px vars.$red;
             }
           }
         }
