@@ -19,9 +19,11 @@
 
   &--container {
     @include animApparition(.5s);
+    @include posFixed(50%, auto, auto, 50%);
+    transform: translate(-50%, -50%);
     @include flexCenter;
     flex-direction: column;
-    position: relative;
+    // position: relative;
     max-width: 90vw;
     max-height: 80vh;
     z-index: 7;

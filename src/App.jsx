@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
+import DarkModeContextProvider from './context/DarkModeContext';
+import LangageContextProvider from './context/LangageContext';
+
 import Home from './pages/Home';
 import Game from './pages/Game';
 import Previous from './pages/Previous';
@@ -150,55 +153,57 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <DarkModeContextProvider>
+        <LangageContextProvider>
+          <Routes>
 
-      <Routes>
-
-        <Route
-          path='/'
-          element={
-            <Home
-              newGame={newGame}
-              difficulty={difficulty}
-              setDifficulty={setDifficulty}
-              hasPreviousGames={hasPreviousGames}
+            <Route
+              path='/'
+              element={
+                <Home
+                  newGame={newGame}
+                  difficulty={difficulty}
+                  setDifficulty={setDifficulty}
+                  hasPreviousGames={hasPreviousGames}
+                />
+              }
             />
-          }
-        />
 
-        <Route
-          path='/game'
-          element={
-            sudokuGrid.length === 0 ?
-              <Navigate to='/' />
-            :
-              <Game
-                sudokuGrid={sudokuGrid}
-                setSudokuGrid={setSudokuGrid}
-                gridID={gridID}
-                solve={solve}
-                setHasPreviousGames={setHasPreviousGames}
-              />
-          }
-        />
+            <Route
+              path='/game'
+              element={
+                sudokuGrid.length === 0 ?
+                  <Navigate to='/' />
+                :
+                  <Game
+                    sudokuGrid={sudokuGrid}
+                    setSudokuGrid={setSudokuGrid}
+                    gridID={gridID}
+                    solve={solve}
+                    setHasPreviousGames={setHasPreviousGames}
+                  />
+              }
+            />
 
-        <Route
-          path='/list'
-          element={ 
-            hasPreviousGames ?
-              <Previous 
-                setSudokuGrid={setSudokuGrid}
-                setGridID={setGridID}
-                setHasPreviousGames={setHasPreviousGames}
-              /> 
-            :
-              <Navigate to='/' />
-          }
-        />
+            <Route
+              path='/list'
+              element={ 
+                hasPreviousGames ?
+                  <Previous 
+                    setSudokuGrid={setSudokuGrid}
+                    setGridID={setGridID}
+                    setHasPreviousGames={setHasPreviousGames}
+                  /> 
+                :
+                  <Navigate to='/' />
+              }
+            />
 
-        <Route path="/*" element={ <NotFound /> } />
+            <Route path="/*" element={ <NotFound /> } />
 
-      </Routes>
-
+          </Routes>
+        </LangageContextProvider>
+      </DarkModeContextProvider>
     </BrowserRouter>
   );
 };

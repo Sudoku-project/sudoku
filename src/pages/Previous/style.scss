@@ -8,7 +8,7 @@
   &--container {
     max-width: 1500px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 100px 0;
@@ -20,7 +20,7 @@
       &--link {
         @include flexCenter;
         cursor: pointer;
-        margin: 10px 0;
+        margin: 20px 0;
       
         &--button {
           position: absolute;
@@ -32,16 +32,7 @@
           opacity: 0;
   
           &--img {
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-  
-            &--icon {
-              height: 100%;
-              width: 100%;
-            }
+            @include imgStyle;
           }
         }
 
@@ -51,15 +42,15 @@
           transition: .3s;
 
           &.easy {
-            box-shadow: 0 0 10px 5px vars.$green;
+            box-shadow: 0 0 8px 4px vars.$green;
           }
 
           &.medium {
-            box-shadow: 0 0 10px 5px vars.$orange;
+            box-shadow: 0 0 8px 4px vars.$orange;
           }
 
           &.hard {
-            box-shadow: 0 0 10px 5px vars.$red;
+            box-shadow: 0 0 8px 4px vars.$red;
           }
 
           &--body {
@@ -116,6 +107,8 @@
 
     &--container {
       padding: 10vh;
+      flex-direction: row;
+      flex-wrap: wrap;
 
       &--item {
 
