@@ -2,13 +2,25 @@
 @import '../../styles/mixins';
 
 .theme {
-  @include posFixed(auto, 5px, 5px, auto);
+  @include posFixed(auto, 10px, 10px, auto);
   
   &--button {
     @include flexCenter;
     border-radius: 50%;
     background: vars.$black;
     padding: 10px;
+
+    &:hover {
+      background: vars.$dark-grey;
+    }
+
+    &.dark {
+      background: vars.$dark-grey;
+
+      &:hover {
+        background: vars.$grey;
+      }
+    }
 
     &--icon {
       @include flexCenter;
@@ -22,6 +34,8 @@
     }
   }
 }
+
+// animation ?
   
 @media screen and (min-width: 850px) {
   .theme {

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import IconButton from '../IconButton';
+import { DarkModeContext } from '../../context/DarkModeContext';
 
 import './style.scss';
 
@@ -9,8 +9,10 @@ import france from '../../media/flags/france.svg';
 
 const LanguageView = ({ lang, changeLanguage }) => {
 
+  const { darkMode } = useContext(DarkModeContext);
+
   return (
-    <section className='lang'>
+    <section className={darkMode ? 'lang dark' : 'lang'}>
 
       <button
         className='lang--button'
@@ -18,10 +20,13 @@ const LanguageView = ({ lang, changeLanguage }) => {
           changeLanguage('en');
         }}
       >
-        <IconButton
-          image={uk}
-          alt={lang === 'en' ? "United Kingdom's flag" : "Drapeau anglais"}
-        />
+        <div className='lang--button--icon'>
+          <img
+            className='lang--button--icon--img'
+            alt={lang === 'en' ? "United Kingdom's flag" : "Drapeau anglais"}
+            src={uk}
+          />
+        </div>
       </button>
       
       <button
@@ -30,10 +35,13 @@ const LanguageView = ({ lang, changeLanguage }) => {
           changeLanguage('fr');
         }}
       >
-        <IconButton
-          image={france}
-          alt={lang === 'en' ? "French's flag" : "Drapeau français"}
-        />
+        <div className='lang--button--icon'>
+          <img
+            className='lang--button--icon--img'
+            alt={lang === 'en' ? "French's flag" : "Drapeau français"}
+            src={france}
+          />
+        </div>
       </button>
 
     </section>

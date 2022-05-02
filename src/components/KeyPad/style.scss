@@ -1,7 +1,6 @@
 @use '../../styles/vars';
 @import '../../styles/mixins';
 
-
 .keypad {
   @include posFixed(auto, auto, 0, 50%);
   transform: translateX(-50%);
@@ -35,15 +34,23 @@
       }
     }
   }
+
+  &.dark {
+    .keypad--numbers {
+      background: vars.$dark-grey;
+    }
+  }
 }
 
 @media screen and (max-width: 850px) {
   .keypad {
-    &--numbers {
-      &--item {
-        &:nth-child(even) {
-          background: vars.$dark-grey;
-        }
+    &--numbers--item:nth-child(even) {
+      background: vars.$dark-grey;
+    }
+    
+    &.dark {
+      .keypad--numbers--item:nth-child(even) {
+        background: vars.$grey;
       }
     }
   }
@@ -70,6 +77,12 @@
             background-color: vars.$dark-grey;
           }
         }
+      }
+    }
+
+    &.dark {
+      .keypad--numbers--item--button:hover {
+        background: vars.$grey;
       }
     }
   }

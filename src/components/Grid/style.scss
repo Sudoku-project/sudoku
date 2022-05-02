@@ -29,6 +29,27 @@
       }
     }
   }
+
+  &.dark {
+    .grid--body {
+      border-color: vars.$white;
+
+      &--row {
+        &:nth-child(3n) {
+          border-color: inherit;
+        }
+
+        &--content {
+          border-color: vars.$white;
+          color: vars.$white;
+
+          &:nth-child(3n) {
+            border-color: inherit;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 850px) {
@@ -63,6 +84,16 @@
   
           &.full {
             cursor: default;
+          }
+        }
+      }
+    }
+
+    &.dark {
+      .grid--body--row--content {
+        &.empty {
+          &:hover {
+            background: vars.$dark-grey;
           }
         }
       }

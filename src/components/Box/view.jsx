@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { DarkModeContext } from '../../context/DarkModeContext';
 
 import KeyPad from '../KeyPad';
 
 import "./style.scss";
 
-const BoxView = ({ numberInput, setNumberInput, handleKeyDown, row, column, gridID, setGridDone, keyPadRef, handleHideKeyPad, showKeyPad, setShowKeyPad }) => {
+const BoxView = ({
+  numberInput,
+  setNumberInput,
+  handleKeyDown,
+  row,
+  column,
+  gridID,
+  setGridDone,
+  keyPadRef,
+  handleHideKeyPad,
+  showKeyPad,
+  setShowKeyPad
+}) => {
+
+  const { darkMode } = useContext(DarkModeContext);
 
   return (
     <>
       <input
-        className="box"
+        className={darkMode ? 'box dark' : 'box'}
         type="number"
         readOnly
         value={numberInput === 0 ? "" : numberInput}

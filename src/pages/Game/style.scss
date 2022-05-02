@@ -7,6 +7,10 @@
   flex-direction: column;
   min-height: 100vh;
   padding-top: 50px;
+
+  &.dark {
+    background: vars.$black;
+  }
 }
 
 @media screen and (min-width: 850px) {

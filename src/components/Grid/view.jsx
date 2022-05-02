@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from 'react';
 
-import Box from "../Box";
-import Functionalities from "../Functionalities";
+import { DarkModeContext } from '../../context/DarkModeContext';
 
-import "./style.scss";
+import Box from '../Box';
+import Functionalities from '../Functionalities';
+
+import './style.scss';
 
 const GridView = ({
   grid,
@@ -12,12 +14,14 @@ const GridView = ({
   gridID,
   setHasPreviousGames
 }) => {
+  
+  const { darkMode } = useContext(DarkModeContext);
 
   const [gridDone, setGridDone] = useState(false);
 
   return (
     <>
-      <table className="grid">
+      <table className={darkMode ? 'grid dark' : 'grid'}>
         <tbody className="grid--body">
           {grid.map((row, rowIndex) => {
 

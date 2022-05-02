@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { LanguageContext } from '../../context/LanguageContext';
+import { DarkModeContext } from '../../context/DarkModeContext';
 
 import HomeButton from '../../components/HomeButton';
 
@@ -11,6 +12,7 @@ import './style.scss';
 const Previous = ({ setSudokuGrid, setGridID, setHasPreviousGames }) => {
 
   const { lang } = useContext(LanguageContext);
+  const { darkMode } = useContext(DarkModeContext);
 
   const [previousGrids, setPreviousGrids] = useState([]);
 
@@ -46,7 +48,7 @@ const Previous = ({ setSudokuGrid, setGridID, setHasPreviousGames }) => {
   };
 
   return (
-    <section className='previous_grids'>
+    <section className={darkMode ? 'previous_grids dark' : 'previous_grids'}>
 
       <HomeButton />
 

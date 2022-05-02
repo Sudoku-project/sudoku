@@ -21,6 +21,10 @@
   &:focus {
     box-shadow: inset 0 0 7px 1px vars.$black;
   }
+
+  &.dark:focus {
+    box-shadow: inset 0 0 7px 1px vars.$white;
+  }
 }
 
 @media screen and (min-width: 850px) {

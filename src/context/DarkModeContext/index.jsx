@@ -10,11 +10,18 @@ const DarkModeContextProvider = (props) => {
     // The favorite theme is saved in local storage
     const previousTheme = localStorage.getItem('dark_mode');
 
-    console.log(navigator);
-
+    // If user's device has a favorite theme,
+    if(window.matchMedia) {
+      // We can set dark or light mode in state
+      if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setDarkMode(true);
+      } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+        setDarkMode(false);
+      };
+    };
 
     // Update the state in terms of previous theme
-    if (previousTheme) {
+    if(previousTheme) {
       if(previousTheme) {
         setDarkMode(true);
       } else {

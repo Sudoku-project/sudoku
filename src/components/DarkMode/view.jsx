@@ -3,8 +3,6 @@ import React, { useContext } from 'react';
 import { DarkModeContext } from '../../context/DarkModeContext';
 import { LanguageContext } from '../../context/LanguageContext';
 
-import IconButton from '../IconButton';
-
 import './style.scss';
 
 import light from '../../media/theme/light.svg';
@@ -18,7 +16,7 @@ const DarkModeView = () => {
   return (
     <section className='theme'>
       <button
-        className='theme--button'
+        className={darkMode ? 'theme--button dark' : 'theme--button'}
         onClick={() => {
           toggleTheme();
         }}

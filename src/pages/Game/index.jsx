@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { DarkModeContext } from '../../context/DarkModeContext';
 
 import Grid from "../../components/Grid";
 import HomeButton from '../../components/HomeButton';
@@ -7,8 +9,10 @@ import './style.scss';
 
 const Game = ({ sudokuGrid, setSudokuGrid, gridID, solve, setHasPreviousGames }) => {
 
+  const { darkMode } = useContext(DarkModeContext);
+
   return (
-    <div className='game'>
+    <div className={darkMode ? 'game dark' : 'game'}>
       
       <HomeButton />
 
