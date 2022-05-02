@@ -58,9 +58,9 @@
 
 @media screen and (min-width: 850px) {
   .keypad {
-    // @include posFixed(auto, auto, auto, auto);
-    // transform: translate(-50%, -50%);
-    @include posFixed(auto, auto, 50px, 50%);
+    @include posFixed(auto, auto, auto, auto);
+    transform: translate(-50%, -50%);
+    // @include posFixed(auto, auto, 50px, 50%);
     width: auto;
 
     &--numbers {

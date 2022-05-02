@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { DarkModeContext } from '../../context/DarkModeContext';
 
 import './style.scss';
 
 const ModalView = ({ children, modalRef, closeModal }) => {
+
+  const { darkMode } = useContext(DarkModeContext);
   
   return (
     <section
-      className='modal'
+      className={darkMode ? 'modal dark' : 'modal'}
       ref={modalRef}
     >
       <div 
@@ -28,10 +32,6 @@ const ModalView = ({ children, modalRef, closeModal }) => {
           <span className='modal--container--close--icon'>
             +
           </span>
-
-          <p className='modal--container--close--label'>
-            Fermer
-          </p>
 
         </button>
 
