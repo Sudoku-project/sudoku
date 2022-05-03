@@ -46,7 +46,7 @@
           }
 
           &.Medium {
-            box-shadow: 0 0 8px 4px vars.$orange;
+            box-shadow: 0 0 8px 4px vars.$yellow;
           }
 
           &.Hard {
@@ -166,7 +166,7 @@
           }
 
           .previous_grids--container--item--button {
-            transform: translateY(120px);
+            transform: translateY(125px);
             opacity: 1;
           }
 
@@ -177,7 +177,7 @@
             }
 
             &.Medium {
-              box-shadow: 0 0 10px 5px vars.$orange;
+              box-shadow: 0 0 10px 5px vars.$yellow;
             }
 
             &.Hard {

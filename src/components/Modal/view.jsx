@@ -20,22 +20,26 @@ const ModalView = ({ children, modalRef, closeModal }) => {
         }}
       ></div>
       
-      <div className='modal--container'>
+      <div className='modal--wrapper'>
 
-        <button
-          className='modal--container--close'
-          onClick={() => {
-            closeModal();
-          }}
-        >
+        <section className='modal--wrapper--container'>
 
-          <span className='modal--container--close--icon'>
-            +
-          </span>
+          <button
+            className='modal--wrapper--container--close'
+            onClick={() => {
+              closeModal();
+            }}
+          >
 
-        </button>
+            <span className='modal--wrapper--container--close--icon'>
+              +
+            </span>
 
-        {children}
+          </button>
+
+          {children}
+
+        </section>
 
       </div>
     </section>

@@ -17,45 +17,51 @@
   z-index: 6;
   transition: .3s;
 
-  &--container {
-    @include posFixed(50%, auto, auto, 50%);
-    transform: translate(-50%, -50%);
-    @include flexCenter;
-    flex-direction: column;
-    min-width: 270px;
-    max-width: 90vw;
-    max-height: 80vh;
+  &--wrapper {
+    @include posCenter;
     z-index: 7;
-    padding: 70px 0 40px;
-    border-radius: 10px;
-    background: vars.$white;
 
-    &--close {
+    &--container {
+      @include animApparition;
       @include flexCenter;
-      @include posAbsolute(0.5em, 0.5em, auto, auto);
-      width: 40px;
-      height: 40px;
-      padding: 0.8em;
-      transition: transform .2s;
+      flex-direction: column;
+      min-width: 270px;
+      max-width: 90vw;
+      max-height: 80vh;
+      z-index: 8;
+      padding: 70px 0 40px;
+      border-radius: 10px;
+      background: vars.$white;
+      opacity: 0;
+      transform: scale(0.8);
 
-      &--label {
-        position: absolute;
-        visibility: hidden;
-      }
-    
-      &--icon {
-        font-size: 40px;
-        transform: rotate(45deg);
-      }
+      &--close {
+        @include flexCenter;
+        @include posAbsolute(0.5em, 0.5em, auto, auto);
+        width: 40px;
+        height: 40px;
+        padding: 0.8em;
+        transition: transform .2s;
 
-      &:active {
-        transform: scale(0.95);
+        &--label {
+          position: absolute;
+          visibility: hidden;
+        }
+
+        &--icon {
+          font-size: 40px;
+          transform: rotate(45deg);
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
       }
     }
   }
 
   &.dark {
-    .modal--container {
+    .modal--wrapper--container {
       background: vars.$dark-grey;
       color: vars.$white;
 
@@ -68,7 +74,7 @@
 
 @media screen and (min-width: 850px) {
   .modal {
-    &--container {
+    &--wrapper--container {
       max-width: 50em;
       max-height: 80vh;
       padding: 100px 150px 50px;
@@ -83,7 +89,7 @@
     }
 
     &.dark {
-      .modal--container--close:hover {
+      .modal--wrapper--container--close:hover {
         background: vars.$black;
       }
     }

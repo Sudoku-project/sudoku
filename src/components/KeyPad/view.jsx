@@ -31,6 +31,14 @@ const KeyPadView = ({ handleChangeNumber, keyPadRef }) => {
             </button>
           </li>
         )}
+        <button
+          className='keypad--numbers--clear'
+          onClick={() => {
+            handleChangeNumber(0);
+          }}
+        >
+          Clear
+        </button>
       </ul>
     </section>
   );

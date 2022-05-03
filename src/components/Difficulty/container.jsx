@@ -11,8 +11,8 @@ const DifficultyContainer = ({ difficulty, setDifficulty }) => {
       setDifficulty(0.95);
     } else {
       localStorage.setItem('difficulty', 0.45);
-      setDifficulty(0.95);
       // setDifficulty(0.45);
+      setDifficulty(0.95);
     };
   }, []);
 

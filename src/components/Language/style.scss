@@ -8,10 +8,6 @@
     border-radius: 5px;
     padding: 1px 5px;
 
-    &:hover {
-      background: vars.$light-grey;
-    }
-
     &--icon {
       @include flexCenter;
       width: 20px;
@@ -23,17 +19,26 @@
       }
     }
   }
-
-  &.dark {
-    &.lang--button:hover {
-      background: vars.$dark-grey;
-    }
-  }
 }
 
 @media screen and (min-width: 850px) {
-  .lang--button--icon {
-    width: 25px;
-    height: 25px;
+  .lang {
+    &--button {
+
+      &:hover {
+        background: vars.$light-grey;
+      }
+
+      &--icon {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    &.dark {
+      .lang--button:hover {
+        background: vars.$dark-grey;
+      }
+    }
   }
 }

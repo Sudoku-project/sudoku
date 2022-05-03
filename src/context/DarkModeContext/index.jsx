@@ -15,34 +15,36 @@ const DarkModeContextProvider = (props) => {
       // We can set dark or light mode in state
       if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
         setDarkMode(true);
+        localStorage.setItem('dark_mode', true);
       } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
         setDarkMode(false);
+        localStorage.setItem('dark_mode', false);
       };
     };
 
     // Update the state in terms of previous theme
     if(previousTheme) {
-      if(previousTheme) {
+      if(previousTheme === 'true') {
         setDarkMode(true);
+        localStorage.setItem('dark_mode', true);
       } else {
         setDarkMode(false);
+        localStorage.setItem('dark_mode', false);
       };
-    } else {
-      localStorage.setItem('dark_mode', false);
     };
   }, []);
   
+  // When user toggle the theme, in DarkMode component, 
   const toggleTheme = () => {
-    // When user toggle the theme, in DarkMode component, 
-    // we update the state
-    setDarkMode(!darkMode);
-    
-    // and save it in local storage
-    if (darkMode) {
-      localStorage.setItem('dark_mode', true);
-    } else {
+    // we save change in local storage
+    if (darkMode === true) {
       localStorage.setItem('dark_mode', false);
+    } else {
+      localStorage.setItem('dark_mode', true);
     };
+    
+    // & we update the state
+    setDarkMode(!darkMode);
   };
 
   return (
