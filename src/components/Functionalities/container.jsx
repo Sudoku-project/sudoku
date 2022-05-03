@@ -50,6 +50,7 @@ const FunctionalitiesContainer = ({ grid, solve, setSudokuGrid, gridDone, gridID
 
   // If user finished the grid,
   const handleVerifyGrid = () => {
+
     setMessage('');
 
     // We solve the grid

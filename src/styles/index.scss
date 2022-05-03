@@ -6,11 +6,18 @@
 body {
   font-family: 'Rubik', sans-serif;
   background: vars.$white;
+  overflow: hidden;
 
   ::selection {
     background-color: vars.$main-color;
     color: vars.$white;
   }
+}
+
+* {
+  letter-spacing: 0.2vh;
+  text-transform: uppercase;
+  font-size: 1.3vh;
 }
 
 @keyframes apparition {

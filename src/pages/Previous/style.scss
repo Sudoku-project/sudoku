@@ -105,7 +105,7 @@
     background: vars.$black;
 
     .previous_grids--container--item--link--grid--body {
-      border-color: vars.$white;
+      border-color: vars.$light-grey;
 
       &--row {
         &:nth-child(3n) {
@@ -113,14 +113,19 @@
         }
 
         &--content {
-          border-color: vars.$white;
-          color: vars.$white;
+          border-color: vars.$light-grey;
+          color: vars.$light-grey;
 
           &:nth-child(3n) {
             border-color: inherit;
           }
         }
       }
+    }
+
+    .previous_grids--container--item--link--span {
+      background: vars.$light-grey;
+      color: vars.$black;
     }
   }
 }

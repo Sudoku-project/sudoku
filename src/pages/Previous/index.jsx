@@ -117,7 +117,7 @@ const Previous = ({ setSudokuGrid, setGridID, setHasPreviousGames }) => {
 
                 <span className='previous_grids--container--item--link--span'>
                   {lang === 'en' ? difficulty : frenchDifficulty}
-                    - 
+                    <br/> 
                   {lang === 'en' ? " filled to" : " remplie à"} {percent}%
                 </span>
               </NavLink>

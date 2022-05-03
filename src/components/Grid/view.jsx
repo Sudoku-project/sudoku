@@ -12,7 +12,7 @@ const GridView = ({
   solve,
   setSudokuGrid,
   gridID,
-  setHasPreviousGames
+  setHasPreviousGames,
 }) => {
   
   const { darkMode } = useContext(DarkModeContext);

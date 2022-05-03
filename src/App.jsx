@@ -83,7 +83,6 @@ const App = () => {
         }
       }
     }
-    // setSudokuGrid(grid)
     return true;
   };
 

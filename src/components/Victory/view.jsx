@@ -12,6 +12,10 @@ const VictoryView = ({ setShowVictory }) => {
 
   return (
     <section className='victory'>
+      <div className="pyro">
+        <div className="before"></div>
+        <div className="after"></div>
+      </div>
       <Modal
         setShowModal={setShowVictory}
       >
@@ -19,9 +23,9 @@ const VictoryView = ({ setShowVictory }) => {
 
           {lang === 'en' ?
           
-            "You won !"
+            "YOU WON !"
           :
-            "Vous avez gagné la partie !"
+            "VOUS AVEZ GAGNÉ !"
           }
 
         </p>
