@@ -19,7 +19,7 @@
     &--item {
 
       &--button {
-        border-radius: 5px;
+        border-radius: vars.$small-radius;
         width: 33.33vw;
         max-width: 16.666vh;
         height: 33.33vw;
@@ -41,6 +41,11 @@
       font-size: 5vw;
       color: vars.$white;
       padding: 5vw;
+      transition: transform .1s;
+
+      &:active {
+        transform: scale(0.9);
+      }
     }
   }
 
@@ -73,7 +78,7 @@
     width: auto;
 
     &--numbers {
-      border-radius: 5px;
+      border-radius: vars.$small-radius;
       width: 300px;
 
       &--item {
@@ -91,16 +96,25 @@
       &--clear {
         font-size: 1.5rem;
         padding: 1.5rem;
+        border: none;
 
         &:hover {
           background: vars.$dark-grey;
+          border-radius: vars.$small-radius;
         }
       }
     }
 
     &.dark {
-      .keypad--numbers--item--button:hover {
-        background: vars.$grey;
+      .keypad--numbers {
+
+        &--item--button:hover {
+          background: vars.$grey;
+        }
+
+        &--clear:hover {
+          background: vars.$grey;
+        }
       }
     }
   }

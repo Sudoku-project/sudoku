@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
 
 import { DarkModeContext } from '../../context/DarkModeContext';
+import { LanguageContext } from "../../context/LanguageContext";
 
 import "./style.scss";
 
 const KeyPadView = ({ handleChangeNumber, keyPadRef }) => {
 
   const { darkMode } = useContext(DarkModeContext);
+  const { lang } = useContext(LanguageContext);
 
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -37,7 +39,7 @@ const KeyPadView = ({ handleChangeNumber, keyPadRef }) => {
             handleChangeNumber(0);
           }}
         >
-          Clear
+          {lang === 'en' ? "Clear" : "Effacer"}
         </button>
       </ul>
     </section>

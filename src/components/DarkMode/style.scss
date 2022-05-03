@@ -9,9 +9,14 @@
     border-radius: 50%;
     background: vars.$black;
     padding: 10px;
+    transition: transform 0.2s;
+
+    &:active {
+      transform: scale(0.9);
+    }
 
     &:hover {
-      background: vars.$dark-grey;
+      background: vars.$grey;
     }
 
     &.dark {
